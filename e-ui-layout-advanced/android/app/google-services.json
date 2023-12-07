@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "442511002985",
+    "firebase_url": "https://firestoredemo-16c50.firebaseio.com",
+    "project_id": "firestoredemo-16c50",
+    "storage_bucket": "firestoredemo-16c50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442511002985:android:8e72aa9bce8489ded241f8",
+        "android_client_info": {
+          "package_name": "com.example.src23"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442511002985-7hvejumf6oeou086je7umeeloptnhhh3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGTP4AH02qGgVClzFX2KpGYSY5jVND584"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442511002985-7hvejumf6oeou086je7umeeloptnhhh3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "442511002985-rq3406cancg883ii8mhm44agrqe0q4sr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.robbinlaw"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
