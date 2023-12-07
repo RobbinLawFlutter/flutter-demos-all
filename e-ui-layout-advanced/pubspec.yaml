@@ -20,3 +20,8 @@ flutter:
 
   assets:
     - assets/images/
+
+  fonts:
+    - family: Chilanka-Regular
+      fonts:
+        - asset: assets/fonts/Chilanka-Regular.ttf

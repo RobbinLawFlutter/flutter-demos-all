@@ -181,7 +181,7 @@ class RootState extends State<Root> {
             }
           },
         ),
-        title: const Text('UI Layout Demos'),
+        title: const Text('UI Layout Basic'),
       ),
       body: const Center(),
     );

@@ -2,11 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-// Align Widget of the Week by the flutter team
-// https://www.youtube.com/watch?v=g2E7yl3MwMk
+//https://flutter.dev/docs/development/ui/layout
 
-// Align Widget by RetroStudio
-// https://www.youtube.com/watch?v=7Dljvr-Afvc&list=PLybADvIp2cxiVOEHi9ooCHP2tAAihHQPX&index=11
+//This app shows a short cut (lambda operator)
+//to use when you have only one statement in a code block.
+
+//This app also shows the use of
+//methods with parameters to create complex Widgets by reusing code.
+
 
 class Demo extends StatelessWidget {
   @override
@@ -14,32 +17,53 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - Align Widget',
+          'D5 - Lambda Operator',
         ),
       ),
-      body: Align(
-        //alignment: Alignment.bottomCenter,
-        //alignment: Alignment.bottomLeft,
-        //alignment: Alignment.topRight,
-        //alignment: Alignment.centerLeft,
-        //alignment: Alignment.center, //default
-        child: Container(
-          height: 400.0,
-          width: 340.0,
-          decoration: const BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: Colors.amber,
-          ),
-          child: Align(
-            //alignment: Alignment.bottomCenter,
-            //alignment: Alignment.bottomLeft,
-            //alignment: Alignment.topRight,
-            //alignment: Alignment.centerLeft,
-            //alignment: Alignment.center, //default
-            child: Image.asset('./assets/images/bottle.jpg'),
-          ),
+      body: Center(
+          child: buildImageColumn(),
         ),
+    );
+  }
+
+  //A method that is structured the long way using {} and return.
+  Widget buildImageColumn() {
+    return Container(
+      //color: Colors.white,
+      decoration: const BoxDecoration(
+        color: Colors.black45,
+      ),
+      child: Column(
+        children: [
+          //Text('hi there'),
+          buildImageRow(1),
+          buildImageRow(3),
+        ],
       ),
     );
   }
+
+  //A method that is structured the short way using =>
+  //now we do not need {} and return.
+  Widget buildImageRow(int imageIndex) => Row(
+        children: [
+          buildDecoratedImage(imageIndex),
+          buildDecoratedImage(imageIndex + 1),
+        ],
+      );
+
+  Widget buildDecoratedImage(int imageIndex) => Expanded(
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              width: 5,
+              color: const Color(0xFFFFFFFF),
+            ),
+            borderRadius: const BorderRadius.all(Radius.circular(8)),
+          ),
+          margin: const EdgeInsets.all(4),
+          child: Image.asset('./assets/images/pic$imageIndex.jpg'),
+        ),
+      );
 }
+
