@@ -11,7 +11,7 @@ class Demo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("D2 - Custom Fonts"),
+        title: const Text("D2 - Stateful Widget DICE"),
       ),
       body: Dice(),
     );
