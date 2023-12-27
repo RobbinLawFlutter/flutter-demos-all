@@ -15,8 +15,8 @@ enum DietClass {
   omnivore('Omnivore'),
   vegetarian('Vegetarian');
 
-const DietClass(this.dietClassString);
-final String dietClassString;
+  const DietClass(this.dietClassString);
+  final String dietClassString;
 }
 
 class Home extends StatefulWidget {
@@ -32,201 +32,196 @@ class HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dietary Stats & BMI Calculator'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReuseableCardEnhanced(
-                    onPress: () {
-                      setState(() {
-                        selectedDietClass = DietClass.omnivore;
-                      });
-                    },
-                    myColor: selectedDietClass == DietClass.omnivore
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.burger,
-                      label: 'OMNIVORE',
-                    ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ReuseableCardEnhanced(
+                  onPress: () {
+                    setState(() {
+                      selectedDietClass = DietClass.omnivore;
+                    });
+                  },
+                  myColor: selectedDietClass == DietClass.omnivore
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
+                  reusableCardChild: MyIcon(
+                    icon: FontAwesomeIcons.burger,
+                    label: 'OMNIVORE',
                   ),
                 ),
-                Expanded(
-                  child: ReuseableCardEnhanced(
-                    onPress: () {
-                      setState(() {
-                        selectedDietClass = DietClass.vegetarian;
-                      });
-                    },
-                    myColor: selectedDietClass == DietClass.vegetarian
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    reusableCardChild: MyIcon(
-                      icon: FontAwesomeIcons.carrot,
-                      label: 'VEGETARIAN',
-                    ),
+              ),
+              Expanded(
+                child: ReuseableCardEnhanced(
+                  onPress: () {
+                    setState(() {
+                      selectedDietClass = DietClass.vegetarian;
+                    });
+                  },
+                  myColor: selectedDietClass == DietClass.vegetarian
+                      ? kActiveCardColor
+                      : kInactiveCardColor,
+                  reusableCardChild: MyIcon(
+                    icon: FontAwesomeIcons.carrot,
+                    label: 'VEGETARIAN',
                   ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: ReuseableCardEnhanced(
+            myColor: kActiveCardColor,
+            reusableCardChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'HEIGHT',
+                  style: kLabelTextStyle,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
+                  children: <Widget>[
+                    Text(
+                      height.toString(),
+                      style: kNumberTextStyle,
+                    ),
+                    Text(
+                      'cm',
+                      style: kLabelTextStyle,
+                    ),
+                  ],
+                ),
+                Slider(
+                  value: height.toDouble(),
+                  min: 120,
+                  max: 220,
+                  onChanged: (double newValue) {
+                    setState(() {
+                      height = newValue.round();
+                    });
+                    print(newValue);
+                    print(height);
+                  },
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: ReuseableCardEnhanced(
-              myColor: kActiveCardColor,
-              reusableCardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    'HEIGHT',
-                    style: kLabelTextStyle,
-                  ),
-                  Row(
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ReuseableCardEnhanced(
+                  myColor: kActiveCardColor,
+                  reusableCardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
                     children: <Widget>[
                       Text(
-                        height.toString(),
-                        style: kNumberTextStyle,
+                        'WEIGHT',
+                        style: kLabelTextStyle,
                       ),
                       Text(
-                        'cm',
-                        style: kLabelTextStyle,
+                        weight.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            onPressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
+                            icon: FontAwesomeIcons.minus,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          RoundIconButton(
+                            onPressed: () {
+                              weight++;
+                              setState(() {});
+                            },
+                            icon: FontAwesomeIcons.plus,
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  Slider(
-                    value: height.toDouble(),
-                    min: 120,
-                    max: 220,
-                    onChanged: (double newValue) {
-                      setState(() {
-                        height = newValue.round();
-                      });
-                      print(newValue);
-                      print(height);
-                    },
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReuseableCardEnhanced(
-                    myColor: kActiveCardColor,
-                    reusableCardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'WEIGHT',
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          weight.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundIconButton(
-                              onPressed: () {
-                                setState(() {
-                                  weight--;
-                                });
-                              },
-                              icon: FontAwesomeIcons.minus,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            RoundIconButton(
-                              onPressed: () {
-                                weight++;
-                                setState(() {});
-                              },
-                              icon: FontAwesomeIcons.plus,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+              Expanded(
+                child: ReuseableCardEnhanced(
+                  myColor: kActiveCardColor,
+                  reusableCardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'AGE',
+                        style: kLabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                              });
+                            },
+                            icon: FontAwesomeIcons.minus,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          RoundIconButton(
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                              });
+                            },
+                            icon: FontAwesomeIcons.plus,
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
-                Expanded(
-                  child: ReuseableCardEnhanced(
-                    myColor: kActiveCardColor,
-                    reusableCardChild: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'AGE',
-                          style: kLabelTextStyle,
-                        ),
-                        Text(
-                          age.toString(),
-                          style: kNumberTextStyle,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            RoundIconButton(
-                              onPressed: () {
-                                setState(() {
-                                  age--;
-                                });
-                              },
-                              icon: FontAwesomeIcons.minus,
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            RoundIconButton(
-                              onPressed: () {
-                                setState(() {
-                                  age++;
-                                });
-                              },
-                              icon: FontAwesomeIcons.plus,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          BottomButton(
-            myText: 'CALCULATE',
-            onTap: () {
-              Calculator calc = Calculator(height: height, weight: weight);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Results(
-                    dietClassString: selectedDietClass.dietClassString,
-                    height: height.toString(),
-                    weight: weight.toString(),
-                    age: age.toString(),
-                    bmiResult: calc.calculateBMI(),
-                  ),
+        ),
+        BottomButton(
+          myText: 'CALCULATE',
+          onTap: () {
+            Calculator calc = Calculator(height: height, weight: weight);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Results(
+                  dietClassString: selectedDietClass.dietClassString,
+                  height: height.toString(),
+                  weight: weight.toString(),
+                  age: age.toString(),
+                  bmiResult: calc.calculateBMI(),
                 ),
-              );
-            },
-          ),
-        ],
-      ),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
