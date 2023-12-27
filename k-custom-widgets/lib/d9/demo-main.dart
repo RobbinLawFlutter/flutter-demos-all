@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D9 - ',
+          'D9 - Navigation',
         ),
       ),
       body: Home(),

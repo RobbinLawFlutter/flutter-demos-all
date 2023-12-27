@@ -33,7 +33,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D7 - ',
+          'D7 - Functions as Args',
         ),
       ),
       body: MyPage(),

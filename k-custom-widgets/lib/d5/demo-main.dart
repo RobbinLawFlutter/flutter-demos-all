@@ -6,7 +6,7 @@ import 'package:robbinlaw/widgets/reusable-card-simple.dart';
 import 'package:robbinlaw/widgets/my-icon.dart';
 import 'package:robbinlaw/constants.dart';
 
-// This MyFifthPage demonstrates the use of
+// This demonstrates the use of
 // both custom widgets but now they are both
 // modularized into their own my-icon.dart
 // and reusable-card-simple.dart files.
@@ -29,7 +29,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - ',
+          'D5 - Modularization',
         ),
       ),
       body: MyPage(),

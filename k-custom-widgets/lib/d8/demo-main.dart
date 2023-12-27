@@ -30,7 +30,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D8 - ',
+          'D8 - More Custom Widgets',
         ),
       ),
       body: MyPage(),

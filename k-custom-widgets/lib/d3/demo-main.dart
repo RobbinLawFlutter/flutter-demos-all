@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:robbinlaw/constants.dart';
 
-// This MyThirdPage demonstrates the use of
+// This demonstrates the use of
 // font awesome Icons from pub.dev.
 // Go to pub.dev and search for font_awesome_flutter
 // package and download and configure pubspec.yaml.
@@ -15,7 +15,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D3 - Button-Disappear',
+          'D3 - Icons',
         ),
       ),
       body: MyPage(),

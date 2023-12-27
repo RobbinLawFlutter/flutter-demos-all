@@ -25,7 +25,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D6 - ',
+          'D6 - Ternary Operator',
         ),
       ),
       body: MyPage(),

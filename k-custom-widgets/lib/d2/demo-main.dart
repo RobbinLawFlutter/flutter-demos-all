@@ -5,7 +5,7 @@ import 'package:robbinlaw/constants.dart';
 
 // This demonstrates the use
 // of a "custom widget" to reuse code.
-// It displays the same as the MyFirstPage.
+// It displays the same as Demo1.
 // It also shows the diff between const vs final.
 
 class Demo extends StatelessWidget {
@@ -14,7 +14,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D2 - Switch-Button-Enable',
+          'D2 - First Custom Widget',
         ),
       ),
       body: MyPage(),
@@ -30,57 +30,52 @@ class MyPage extends StatefulWidget {
 class MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dietary Stats & BMI Calculator'),
-      ),
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReuseableCardSimple(
-                    myColor: kActiveCardColor,
-                  ),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ReuseableCardSimple(
+                  myColor: kActiveCardColor,
                 ),
-                Expanded(
-                  child: ReuseableCardSimple(
-                    myColor: kActiveCardColor,
-                  ),
+              ),
+              Expanded(
+                child: ReuseableCardSimple(
+                  myColor: kActiveCardColor,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Expanded(
-            child: ReuseableCardSimple(
-              myColor: kActiveCardColor,
-            ),
+        ),
+        Expanded(
+          child: ReuseableCardSimple(
+            myColor: kActiveCardColor,
           ),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: ReuseableCardSimple(
-                    myColor: kActiveCardColor,
-                  ),
+        ),
+        Expanded(
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: ReuseableCardSimple(
+                  myColor: kActiveCardColor,
                 ),
-                Expanded(
-                  child: ReuseableCardSimple(
-                    myColor: kActiveCardColor,
-                  ),
+              ),
+              Expanded(
+                child: ReuseableCardSimple(
+                  myColor: kActiveCardColor,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
-          ),
-        ],
-      ),
+        ),
+        Container(
+          color: kBottomContainerColor,
+          margin: const EdgeInsets.only(top: 10),
+          width: double.infinity,
+          height: kBottomContainerHeight,
+        ),
+      ],
     );
   }
 }
@@ -115,4 +110,3 @@ class ReuseableCardSimple extends StatelessWidget {
     );
   }
 }
-
