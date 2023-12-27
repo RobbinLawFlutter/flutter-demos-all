@@ -8,7 +8,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - Switch Widget',
+          'D1 - Switch Widget',
         ),
       ),
       body: MyPage(),
@@ -28,33 +28,26 @@ class MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     int count = 4;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Switch Demo'),
-      ),
-      body: Column(
-        children: <Widget>[
-          for (int i = 0; i <= count; i++)
-            ListTile(
-              title: Text(
-                'Switch $i',
-              ),
-              leading: Switch(
-                value: values[i],
-                // Making the onChanged property null disables the switch.
-                onChanged: i == count - 1
-                    ? null
-                    : (bool value) {
-                        values[i] = value;
-                        print(values);
-                        setState(() {});
-                      },
-              ),
+    return Column(
+      children: <Widget>[
+        for (int i = 0; i <= count; i++)
+          ListTile(
+            title: Text(
+              'Switch $i',
             ),
-        ],
-      ),
+            leading: Switch(
+              value: values[i],
+              // Making the onChanged property null disables the switch.
+              onChanged: i == count - 1
+                  ? null
+                  : (bool value) {
+                      values[i] = value;
+                      print(values);
+                      setState(() {});
+                    },
+            ),
+          ),
+      ],
     );
   }
 }
-
-

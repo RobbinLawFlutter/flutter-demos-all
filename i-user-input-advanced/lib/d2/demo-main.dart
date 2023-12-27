@@ -1,8 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, unused_import
 
 import 'package:flutter/material.dart';
-import './first_page.dart' as p1;
-import './second_page.dart' as p2;
+import './first_page.dart';
 
 class Demo extends StatelessWidget {
   @override
@@ -10,10 +9,10 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D6 - Switch-Button-Enable',
+          'D2 - Switch-Button-Enable',
         ),
       ),
-      body: p1.MyPage(),
+      body: MyPage(),
     );
   }
 }
