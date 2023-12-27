@@ -1,8 +1,6 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import
+// ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/d6/first_page.dart';
-import 'package:robbinlaw/d6/second_page.dart';
 
 class Demo extends StatelessWidget {
   @override
@@ -10,10 +8,10 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D6 - Switch-Button-Enable',
+          'D9 - ',
         ),
       ),
-      body: MySecondPage(),
+      body: const Center(),
     );
   }
 }

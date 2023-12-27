@@ -2,23 +2,25 @@
 
 import 'package:flutter/material.dart';
 
-class MyFirstPage extends StatefulWidget {
+// Visibility Widget by Al with Flutter
+// https://www.youtube.com/watch?v=FS5JQpp2gks
+
+class MyPage extends StatefulWidget {
   @override
-  MyFirstPageState createState() => MyFirstPageState();
+  MyPageState createState() => MyPageState();
 }
 
-class MyFirstPageState extends State<MyFirstPage> {
+class MyPageState extends State<MyPage> {
   bool _enabled = false;
   int _timesClicked = 0;
-  String _msg1 = 'Disabled';
-  //String _msg1 = '';
+  String _msg1 = '';
 
   @override
   Widget build(BuildContext context) {
     print('The build method is being RUN');
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Enable Button Demo'),
+        title: const Text('Disappearing Button Demo'),
       ),
       body: Column(
         children: <Widget>[
@@ -30,17 +32,16 @@ class MyFirstPageState extends State<MyFirstPage> {
                   value: _enabled,
                   onChanged: (bool onChangedValue) {
                     print('onChangedValue is $onChangedValue');
-                    // _enabled is now DIRTY after next statement.
-                      _enabled = onChangedValue;
+                    _enabled = onChangedValue;
                     setState(() {
                       if (_enabled) {
-                        //Here we DO NOT reset the count.
-                        // _msg1 is now also DIRTY.
+                        // Here we DO reset the count 
+                        // unlike the previous demo.
+                        _timesClicked = 0;
                         _msg1 = 'Enabled';
                         print('_enabled is true');
                       } else {
                         _msg1 = 'Disabled';
-                        //_msg1 = '';
                         print('_enabled is false');
                       }
                     });
@@ -50,22 +51,21 @@ class MyFirstPageState extends State<MyFirstPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //With an ElevatedButton whose onPressed = null
-              //will give a greyed out disabled button, but
-              //it will NOT disappear.
-              //We can only achieve the disappearing nature
-              //with a MaterialButton, as second-page shows.
-              ElevatedButton(
-                onPressed: _enabled
-                    ? () {
-                        setState(() {
-                          _timesClicked++;
-                          _msg1 = 'Clicked $_timesClicked';
-                          print('clicked $_timesClicked');
-                        });
-                      }
-                    : null,
-                child: Text(_msg1),
+              // Here we use a Visibility Widget to
+              // show or hide the button based on
+              // the value of the switch.
+              Visibility(
+                visible: _enabled,
+                child: ElevatedButton(
+                  onPressed: () {
+                          setState(() {
+                            _timesClicked++;
+                            _msg1 = 'Clicked $_timesClicked';
+                            print('clicked $_timesClicked');
+                          });
+                        },
+                  child: Text(_msg1),
+                ),
               ),
             ],
           ),

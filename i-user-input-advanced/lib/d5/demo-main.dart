@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
+// ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:flutter/material.dart';
 
@@ -8,53 +8,10 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - Switch Widget',
+          'D9 - ',
         ),
       ),
-      body: MyPage(),
+      body: const Center(),
     );
   }
 }
-
-class MyPage extends StatefulWidget {
-  @override
-  State<MyPage> createState() => MyPageState();
-}
-
-class MyPageState extends State<MyPage> {
-  List<bool> values = [true, false, true, false, false];
-
-  @override
-  Widget build(BuildContext context) {
-    int count = 4;
-
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Switch Demo'),
-      ),
-      body: Column(
-        children: <Widget>[
-          for (int i = 0; i <= count; i++)
-            ListTile(
-              title: Text(
-                'Switch $i',
-              ),
-              leading: Switch(
-                value: values[i],
-                // Making the onChanged property null disables the switch.
-                onChanged: i == count - 1
-                    ? null
-                    : (bool value) {
-                        values[i] = value;
-                        print(values);
-                        setState(() {});
-                      },
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-

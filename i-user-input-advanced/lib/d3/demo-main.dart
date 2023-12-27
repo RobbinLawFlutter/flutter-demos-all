@@ -2,21 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-// https://api.flutter.dev/flutter/material/material-library.html
+//ListView Widget of the Week
+//https://www.youtube.com/watch?v=KJpkjHGiI5A&vl=en
 
-// Snackbar Widget of the Week.
-// https://www.youtube.com/watch?v=zpO6n_oZWw0
+//TextEditingController Widget
+//https://api.flutter.dev/flutter/widgets/TextEditingController-class.html
 
-// SnackBar
-// https://api.flutter.dev/flutter/material/SnackBar-class.html
-
-// ScaffoldMessenger Widget of the Week
-// https://youtu.be/lytQi-slT5Y
-
-// Proper use of the ScaffoldMessenger.of
-// https://docs.flutter.dev/release/breaking-changes/scaffold-messenger
-
-// https://flutterdesk.com/how-to-show-custom-snackbar-in-flutter/
+//TextFormField Widget
+//https://api.flutter.dev/flutter/material/TextFormField-class.html
 
 class Demo extends StatelessWidget {
   @override
@@ -24,7 +17,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D3 - Buttons with Snackbar',
+          'D7 - Text Forms',
         ),
       ),
       body: MyPage(),
@@ -32,109 +25,134 @@ class Demo extends StatelessWidget {
   }
 }
 
-class MyPage extends StatelessWidget {
+class MyPage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextButton(
-            onPressed: () {
-              // Respond to button press
-              print('You Clicked the Text Button');
-            },
-            child: const Text(
-              'TEXT BUTTON',
-              //style: TextStyle(color: Colors.green),
-            ),
-          ),
-          const SizedBox(height: 8.0),
-          OutlinedButton(
-            onPressed: () {
-              // Respond to button press
-              print('You Clicked the Outlined Button');
-            },
-            child: const Text("OUTLINED BUTTON"),
-          ),
-          const SizedBox(height: 8.0),
-          ElevatedButton(
-            onPressed: () {
-              // Respond to button press
-              print('You Clicked the Elevated Button');
-            },
-            child: const Text("ELEVATED BUTTON"),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              dynamic snackBar = mySnackBar('hey man');
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              // Respond to button press
-              print('You Clicked the Elevated Button');
-            },
-            child: const Text("SHOW SNACKBAR"),
-          ),
-          SnackbarButton(),
-        ],
-      ),
-    );
-  }
-
-  SnackBar mySnackBar(String text) {
-    return SnackBar(
-      behavior: SnackBarBehavior.floating,
-      content: Row(
-        children: [
-          const Icon(Icons.accessibility_new_rounded),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(text),
-        ],
-      ),
-      action: SnackBarAction(
-        label: 'Click Me',
-        onPressed: () {
-          print('hey you clicked on the snackbar Action');
-        },
-      ),
-    );
-  }
+  State<MyPage> createState() => MyPageState();
 }
 
-class SnackbarButton extends StatelessWidget {
+class MyPageState extends State<MyPage> {
+  final formKey = GlobalKey<FormState>();
+  final TextEditingController textEditingController = TextEditingController();
+  final TextEditingController textEditingController1 = TextEditingController();
+
+  late String? _email, _password;
+  List<String> listItems = [];
+
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        // building the snackBar
-        dynamic snackBar = SnackBar(
-          behavior: SnackBarBehavior.floating,
-          //behavior: SnackBarBehavior.fixed,
-          //duration: const Duration(seconds: 10),
-          content: const Row(
-            children: [
-              Icon(Icons.favorite),
-              SizedBox(
-                width: 10,
+    print('build method is running');
+    return Form(
+      key: formKey,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(children: [
+          const SizedBox(
+            height: 10,
+          ),
+          TextFormField(
+            controller: textEditingController,
+            onChanged: (value) {
+              print(value);
+            },
+            onFieldSubmitted: (text) {
+              print('Submitted Email Text = $text');
+              // This if statement will only be true when
+              // both TextFormFields are valid.
+              if (formKey.currentState!.validate()) {
+                print('the email input is now valid');
+              }
+            },
+            validator: (input) {
+              // The ! tells the compiler that input could
+              // be null, and not to throw an error.
+              return input!.contains('@') ? null : 'must include @ please';
+            },
+            onSaved: (input) {
+              // The onSaved event will only be triggered
+              // when the elevated button is pressed and both
+              // TextFormFields are valid.
+              print('onSaved email = $input');
+              _email = input;
+            },
+            maxLength: 30,
+            decoration: const InputDecoration(
+              //The border property is what makes a outlined
+              //textformfield instead of a filled one.
+              //border: OutlineInputBorder(),
+              icon: Icon(Icons.email),
+              labelText: 'email',
+              helperText: 'must include @',
+              suffixIcon: Icon(
+                Icons.check_circle,
               ),
-              Text('Hey There'),
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          TextFormField(
+            controller: textEditingController1,
+            onChanged: (value) {
+              print(value);
+            },
+            onFieldSubmitted: (text) {
+              print('Submitted Password Text = $text');
+              if (formKey.currentState!.validate()) {
+                print('the password input is now valid');
+              }
+              //setState(() {});
+            },
+            validator: (input) {
+              return input!.length < 8 ? 'min 8 chars please' : null;
+            },
+            onSaved: (input) {
+              print('onSaved password = $input');
+              _password = input;
+            },
+            obscureText: true,
+            maxLength: 20,
+            decoration: const InputDecoration(
+              icon: Icon(Icons.emoji_emotions),
+              labelText: 'password',
+              helperText: 'min 8, max 20',
+              suffixIcon: Icon(
+                Icons.check_circle,
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      formKey.currentState!.save();
+                      listItems.add('email = $_email , password = $_password');
+                      textEditingController.clear();
+                      textEditingController1.clear();
+                      setState(() {});
+                    }
+                  },
+                  child: const Text('Sign in'),
+                ),
+              )
             ],
           ),
-          action: SnackBarAction(
-            label: 'Click Me',
-            onPressed: () {
-              print('hey you clicked on the snackbar Action');
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: listItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                print('index = $index');
+                return Text(
+                  listItems[index],
+                );
+              },
+            ),
           ),
-        );
-        // Displaying the snackBar.
-        // Find the Scaffold in the
-        // widget tree and use
-        // it to show a SnackBar.
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      },
-      child: const Text('SHOW SNACKBAR'),
+        ]),
+      ),
     );
   }
 }

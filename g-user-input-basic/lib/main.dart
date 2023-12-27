@@ -8,7 +8,7 @@ import 'package:robbinlaw/d1/demo-main.dart' as d1;
 import 'package:robbinlaw/d2/demo-main.dart' as d2;
 // D3- Buttons with SnakeBar
 import 'package:robbinlaw/d3/demo-main.dart' as d3;
-// D4 - AppBar Button with SnakeBar
+// D4 - AppBar Buttons with SnakeBar
 import 'package:robbinlaw/d4/demo-main.dart' as d4;
 // D5 - Navigation with Buttons
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
