@@ -1,0 +1,2 @@
+- [android 13](https://en.wikipedia.org/wiki/Android_13)
+- [android 13 info from android site](https://developer.android.com/about/versions/13)
