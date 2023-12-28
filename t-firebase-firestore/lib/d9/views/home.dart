@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:robbinlaw/d9-TODO/services/authorization.dart';
-import 'package:robbinlaw/d9-TODO/services/database.dart';
-import 'package:robbinlaw/d9-TODO/widgets/mycard.dart';
-import 'package:robbinlaw/d9-TODO/widgets/mysnackbar.dart';
-import 'package:robbinlaw/d9-TODO/views/first.dart';
+import 'package:robbinlaw/d9/services/authorization.dart';
+import 'package:robbinlaw/d9/services/database.dart';
+import 'package:robbinlaw/d9/widgets/mycard.dart';
+import 'package:robbinlaw/d9/widgets/mysnackbar.dart';
+import 'package:robbinlaw/d9/views/first.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -14,8 +14,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   final bool useDissmissible = false;
   final TextEditingController textEditingController = TextEditingController();
+
+  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
+      GlobalKey<ScaffoldMessengerState>();
+
+  void showSnack(SnackBar snackBar) {
+    scaffoldMessengerKey.currentState!.showSnackBar(snackBar);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +40,9 @@ class _HomeState extends State<Home> {
             onPressed: () async {
               try {
                 await auth.logOut();
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'logOut: SUCCESS').get());
+                showSnack(MySnackBar(text: 'logOut: SUCCESS').get());
               } catch (e) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'logOut: FAILED').get());
+                showSnack(MySnackBar(text: 'logOut: FAILED').get());
               }
               Navigator.pushReplacement(
                 context,
@@ -79,11 +85,11 @@ class _HomeState extends State<Home> {
                           db.addAppData(textEditingController.text,
                               auth.currentUser!.uid);
                           textEditingController.clear();
-                          ScaffoldMessenger.of(context).showSnackBar(
+                          showSnack(
                               MySnackBar(text: 'add: SUCCESS').get());
                         }
                       } catch (e) {
-                        ScaffoldMessenger.of(context).showSnackBar(
+                        showSnack(
                             MySnackBar(text: 'add: FAILED').get());
                       }
                     },

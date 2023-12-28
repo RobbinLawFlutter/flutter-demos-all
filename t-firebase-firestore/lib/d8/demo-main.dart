@@ -11,7 +11,19 @@ class Demo extends StatelessWidget {
           'D8 - ',
         ),
       ),
-      body: const Center(),
+      body: MyPage(),
     );
+  }
+}
+
+class MyPage extends StatefulWidget {
+  @override
+  State<MyPage> createState() => MyPageState();
+}
+
+class MyPageState extends State<MyPage> {
+  @override
+  Widget build(BuildContext context) {
+    return const Center();
   }
 }

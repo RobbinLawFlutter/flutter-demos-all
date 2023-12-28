@@ -1,21 +1,21 @@
-// ignore_for_file: use_build_context_synchronously, use_key_in_widget_constructors, avoid_print
+// ignore_for_file: use_build_context_synchronously, avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/d9-TODO/services/authorization.dart';
-import 'package:robbinlaw/d9-TODO/views/first.dart';
-import 'package:robbinlaw/d9-TODO/widgets/mysnackbar.dart';
+import 'package:robbinlaw/d9/services/authorization.dart';
+import 'package:robbinlaw/d9/views/first.dart';
+import 'package:robbinlaw/d9/views/signup.dart';
+import 'package:robbinlaw/d9/widgets/mysnackbar.dart';
 
-class SignUp extends StatelessWidget {
-  final TextEditingController nameController = TextEditingController();
+class Login extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print('SignUp build');
+    print('Login build:');
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sign Up"),
+        title: const Text("Login"),
       ),
       body: Center(
         child: Padding(
@@ -23,13 +23,6 @@ class SignUp extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              TextFormField(
-                decoration: const InputDecoration(hintText: "Full Name"),
-                controller: nameController,
-              ),
-              const SizedBox(
-                height: 40,
-              ),
               TextFormField(
                 decoration: const InputDecoration(hintText: "Email"),
                 controller: emailController,
@@ -39,25 +32,36 @@ class SignUp extends StatelessWidget {
               ),
               TextFormField(
                 decoration: const InputDecoration(hintText: "Password"),
-                obscureText: true,
                 controller: passwordController,
+                obscureText: true,
               ),
               ElevatedButton(
-                child: const Text("Sign Up"),
+                child: const Text("Log In"),
                 onPressed: () async {
                   try{
-                    await Authorization().createUser(nameController.text,
+                    await Authorization().logIn(
                       emailController.text, passwordController.text);
                     ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'signUp: SUCCESS').get());
-                  }catch(e){
+                    .showSnackBar(MySnackBar(text: 'logIn: SUCCESS').get());
+                  } catch(e){
                     ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'signUp: FAILED').get());
+                    .showSnackBar(MySnackBar(text: 'logIn: FAILED').get());
                   }
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => First(),
+                    ),
+                  );
+                },
+              ),
+              ElevatedButton(
+                child: const Text("Sign Up"),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignUp(),
                     ),
                   );
                 },

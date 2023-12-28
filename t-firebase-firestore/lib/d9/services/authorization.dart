@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:robbinlaw/d9-TODO/services/database.dart';
+import 'package:robbinlaw/d9/services/database.dart';
 
 class Authorization {
   User? currentUser = FirebaseAuth.instance.currentUser;
