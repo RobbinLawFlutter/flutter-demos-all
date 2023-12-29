@@ -2,10 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:robbinlaw/widgets/mycard.dart';
+import 'package:robbinlaw/widgets/mysnackbar.dart';
 import 'package:robbinlaw/d9/services/authorization.dart';
 import 'package:robbinlaw/d9/services/database.dart';
-import 'package:robbinlaw/d9/widgets/mycard.dart';
-import 'package:robbinlaw/d9/widgets/mysnackbar.dart';
+
 import 'package:robbinlaw/d9/views/first.dart';
 
 class Home extends StatefulWidget {
@@ -17,13 +18,6 @@ class _HomeState extends State<Home> {
 
   final bool useDissmissible = false;
   final TextEditingController textEditingController = TextEditingController();
-
-  final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
-      GlobalKey<ScaffoldMessengerState>();
-
-  void showSnack(SnackBar snackBar) {
-    scaffoldMessengerKey.currentState!.showSnackBar(snackBar);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,9 +34,9 @@ class _HomeState extends State<Home> {
             onPressed: () async {
               try {
                 await auth.logOut();
-                showSnack(MySnackBar(text: 'logOut: SUCCESS').get());
+                MySnackBar(text: 'logOut: SUCCESS').show();
               } catch (e) {
-                showSnack(MySnackBar(text: 'logOut: FAILED').get());
+                MySnackBar(text: 'logOut: FAILED').show();
               }
               Navigator.pushReplacement(
                 context,
@@ -85,12 +79,10 @@ class _HomeState extends State<Home> {
                           db.addAppData(textEditingController.text,
                               auth.currentUser!.uid);
                           textEditingController.clear();
-                          showSnack(
-                              MySnackBar(text: 'add: SUCCESS').get());
+                          MySnackBar(text: 'add: SUCCESS').show();
                         }
                       } catch (e) {
-                        showSnack(
-                            MySnackBar(text: 'add: FAILED').get());
+                            MySnackBar(text: 'add: FAILED').show();
                       }
                     },
                   )

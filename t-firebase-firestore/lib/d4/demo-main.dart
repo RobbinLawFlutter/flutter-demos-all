@@ -1,7 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, avoid_print, file_names
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:robbinlaw/widgets/mysnackbar.dart';
 
@@ -31,69 +30,59 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
-
-  void showSnack(SnackBar snackBar) {
-    //print(scaffoldMessengerKey.currentState);
-    scaffoldMessengerKey.currentState?.showSnackBar(snackBar);
-  }
-
   @override
   Widget build(BuildContext context) {
     print('build');
     return Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await create();
-                    showSnack(
-                        MySnackBar(text: 'create: SUCCESS').get());
-                  } catch (e) {
-                    showSnack(MySnackBar(text: 'create: FAILED').get());
-                  }
-                },
-                child: const Text("Create"),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await read();
-                    showSnack(
-                        MySnackBar(text: 'read: SUCCESS').get());
-                  } catch (e) {
-                    showSnack(MySnackBar(text: 'read: FAILED').get());
-                  }
-                },
-                child: const Text("Read"),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await update();
-                    showSnack(
-                        MySnackBar(text: 'update: SUCCESS').get());
-                  } catch (e) {
-                    showSnack(MySnackBar(text: 'update: FAILED').get());
-                  }
-                },
-                child: const Text("Update"),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await delete();
-                    showSnack(
-                        MySnackBar(text: 'delete: SUCCESS').get());
-                  } catch (e) {
-                    showSnack(MySnackBar(text: 'delete: FAILED').get());
-                  }
-                },
-                child: const Text("Delete"),
-              ),
-            ]),
-      );
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  await create();
+                  MySnackBar(text: 'create: SUCCESS').show();
+                } catch (e) {
+                  MySnackBar(text: 'create: FAILED').show();
+                }
+              },
+              child: const Text("Create"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  await read();
+                  MySnackBar(text: 'read: SUCCESS').show();
+                } catch (e) {
+                  MySnackBar(text: 'read: FAILED').show();
+                }
+              },
+              child: const Text("Read"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  await update();
+                  MySnackBar(text: 'update: SUCCESS').show();
+                } catch (e) {
+                  MySnackBar(text: 'update: FAILED').show();
+                }
+              },
+              child: const Text("Update"),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                try {
+                  await delete();
+                  MySnackBar(text: 'delete: SUCCESS').show();
+                } catch (e) {
+                  MySnackBar(text: 'delete: FAILED').show();
+                }
+              },
+              child: const Text("Delete"),
+            ),
+          ]),
+    );
   }
 
   Future<void> create() async {
