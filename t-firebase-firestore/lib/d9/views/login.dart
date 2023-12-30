@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/widgets/mysnackbar.dart';
 import 'package:robbinlaw/d9/services/authorization.dart';
 import 'package:robbinlaw/d9/views/first.dart';
 import 'package:robbinlaw/d9/views/signup.dart';
@@ -42,11 +41,8 @@ class Login extends StatelessWidget {
                   try{
                     await Authorization().logIn(
                       emailController.text, passwordController.text);
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'logIn: SUCCESS').get());
                   } catch(e){
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'logIn: FAILED').get());
+                    print(e);
                   }
                   Navigator.pushReplacement(
                     context,

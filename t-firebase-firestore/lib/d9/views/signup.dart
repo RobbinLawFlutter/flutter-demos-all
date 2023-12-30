@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously, use_key_in_widget_constructors, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:robbinlaw/widgets/mysnackbar.dart';
 import 'package:robbinlaw/d9/services/authorization.dart';
 import 'package:robbinlaw/d9/views/first.dart';
 
@@ -49,11 +48,8 @@ class SignUp extends StatelessWidget {
                   try{
                     await Authorization().createUser(nameController.text,
                       emailController.text, passwordController.text);
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'signUp: SUCCESS').get());
                   }catch(e){
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'signUp: FAILED').get());
+                    print(e);
                   }
                   Navigator.pushReplacement(
                     context,

@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:robbinlaw/widgets/mycard.dart';
-import 'package:robbinlaw/widgets/mysnackbar.dart';
 import 'package:robbinlaw/d9/services/authorization.dart';
 import 'package:robbinlaw/d9/services/database.dart';
 
@@ -34,9 +33,8 @@ class _HomeState extends State<Home> {
             onPressed: () async {
               try {
                 await auth.logOut();
-                MySnackBar(text: 'logOut: SUCCESS').show();
               } catch (e) {
-                MySnackBar(text: 'logOut: FAILED').show();
+                print(e);
               }
               Navigator.pushReplacement(
                 context,
@@ -79,10 +77,9 @@ class _HomeState extends State<Home> {
                           db.addAppData(textEditingController.text,
                               auth.currentUser!.uid);
                           textEditingController.clear();
-                          MySnackBar(text: 'add: SUCCESS').show();
                         }
                       } catch (e) {
-                            MySnackBar(text: 'add: FAILED').show();
+                            print(e);
                       }
                     },
                   )

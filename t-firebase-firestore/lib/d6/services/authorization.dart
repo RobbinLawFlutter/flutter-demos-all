@@ -2,7 +2,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:robbinlaw/widgets/mysnackbar.dart';
-import 'package:robbinlaw/d9/services/database.dart';
 
 class Authorization {
   User? currentUser = FirebaseAuth.instance.currentUser;
@@ -17,19 +16,17 @@ class Authorization {
     });
   }
 
-  Future<void> createUser(String name, String email, String password) async {
+  Future<void> signUp(String email, String password) async {
     try {
-      print('Auth createUser: TRY');
-      UserCredential credential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-              email: email.trim(), password: password);
-      await credential.user?.updateDisplayName(name);
+      print('Auth signUp: TRY');
+      UserCredential credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: email, password: password);
+      await credential.user?.updateDisplayName(email);
       User? user = FirebaseAuth.instance.currentUser;
-      await Database().createNewUser(user?.uid, user?.displayName, user?.email);
       print('signed up with ${user?.displayName}');
       MySnackBar(text: '${user?.displayName} signUp: SUCCESS').show();
     } catch (e) {
-      print('Auth createUser: CATCH $e');
+      print('Auth signUp: CATCH $e');
       MySnackBar(text: 'signUp: FAILED').show();
     }
   }
