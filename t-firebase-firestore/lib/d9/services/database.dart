@@ -1,6 +1,7 @@
-// ignore_for_file: avoid_print, use_build_context_synchronously
+// ignore_for_file: avoid_print
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:robbinlaw/widgets/mysnackbar.dart';
 
 class Database {
 
@@ -11,9 +12,11 @@ class Database {
         "name": userName,
         "email": userEmail,
       });
+      print('Database createNewUser: SUCCESS');
+      MySnackBar(text: 'DB create $userEmail: SUCCESS').show();
     } catch (e) {
       print('Database createNewUser: CATCH $e.toString');
-      rethrow;
+      MySnackBar(text: 'DB create $userEmail: FAIL').show();
     }
   }
 
@@ -40,9 +43,11 @@ class Database {
         'content': content,
         'done': false,
       });
+      print('Database addAppData: SUCCESS');
+      MySnackBar(text: 'DB add $content: SUCCESS').show();
     } catch (e) {
       print('Database addAppData: CATCH $e.toString');
-      rethrow;
+      MySnackBar(text: 'DB add $content: FAIL').show();
     }
   }
 
@@ -56,9 +61,11 @@ class Database {
           .collection("todos")
           .doc(appDataId)
           .update({"done": newDoneValue});
+      print('Database updateAppData: SUCCESS');
+      MySnackBar(text: 'DB update $appDataId: SUCCESS').show();
     } catch (e) {
       print('Database updateAppData: CATCH $e.toString');
-      rethrow;
+      MySnackBar(text: 'DB update $appDataId: FAIL').show();
     }
   }
 
@@ -71,9 +78,11 @@ class Database {
           .collection("todos")
           .doc(appDataId)
           .delete();
+      print('Database deleteAppData: SUCCESS');
+      MySnackBar(text: 'DB update $appDataId: SUCCESS').show();
     } catch (e) {
       print('Database deleteAppData: CATCH $e.toString');
-      rethrow;
+      MySnackBar(text: 'DB update $appDataId: FAIL').show();
     }
   }
 }
