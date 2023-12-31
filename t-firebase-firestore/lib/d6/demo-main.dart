@@ -1,9 +1,9 @@
-// ignore_for_file: use_key_in_widget_constructors, avoid_print
+// ignore_for_file: use_key_in_widget_constructors, avoid_print, file_names
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/d6/services/authorization.dart';
 
-//https://firebase.google.com/docs/auth/flutter/start
+// https://firebase.google.com/docs/auth/flutter/start
 
 class Demo extends StatelessWidget {
   @override
@@ -121,7 +121,7 @@ class MyPageState extends State<MyPage> {
               height: 10,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton(

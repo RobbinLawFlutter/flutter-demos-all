@@ -98,7 +98,7 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 6,
               child: ListTile(
-                title: Text('D6 - '),
+                title: Text('D6 - Firebase Auth'),
               ),
             ),
             const PopupMenuDivider(),

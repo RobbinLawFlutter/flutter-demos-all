@@ -52,21 +52,24 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 1,
               child: ListTile(
+                leading: Text('fun'),
                 title: Text('D1 - '),
+                trailing: Text('yes'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 2,
-              child: ListTile(
-                title: Text('D2 - '),
-              ),
+              child: Text('D2 - '),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 3,
               child: ListTile(
+                leading: Text('fun'),
                 title: Text('D3 - '),
+                subtitle: Text('sub'),
+                trailing: Text('yes'),
               ),
             ),
             const PopupMenuDivider(),
@@ -192,7 +195,7 @@ class RootState extends State<Root> {
         ),
         title: const Text('Template'),
       ),
-      body: const Center(),
+      body: const Center(child: Text('what')),
     );
   }
 }
