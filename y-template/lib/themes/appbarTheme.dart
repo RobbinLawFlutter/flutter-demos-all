@@ -13,7 +13,6 @@ AppBarTheme buildAppBarTheme(AppBarTheme original) {
     titleTextStyle: buildTextStyle(
       colorScheme.onPrimary,
       size: 30,
-      fontStyle: FontStyle.italic,
     ),
     centerTitle: true,
   );
