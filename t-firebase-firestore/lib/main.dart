@@ -91,7 +91,7 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 5,
               child: ListTile(
-                title: Text('D5 - FireStore-Name-Votes'),
+                title: Text('D5 - FireStore-Votes'),
               ),
             ),
             const PopupMenuDivider(),
