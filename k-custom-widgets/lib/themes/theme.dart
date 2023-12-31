@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/colorScheme.dart';
 import 'package:robbinlaw/themes/textTheme.dart';
 import 'package:robbinlaw/themes/iconTheme.dart';
-import 'package:robbinlaw/themes/appbarTheme.dart';
-import 'package:robbinlaw/themes/snackbarTheme.dart';
+import 'package:robbinlaw/themes/appBarTheme.dart';
+import 'package:robbinlaw/themes/snackBarTheme.dart';
 import 'package:robbinlaw/themes/buttonTheme.dart';
 import 'package:robbinlaw/themes/switchTheme.dart';
 import 'package:robbinlaw/themes/sliderTheme.dart';
 import 'package:robbinlaw/themes/dialogTheme.dart';
-import 'package:robbinlaw/themes/inputdecorationTheme.dart';
+import 'package:robbinlaw/themes/listTileTheme.dart';
+import 'package:robbinlaw/themes/popUpMenuTheme.dart';
+import 'package:robbinlaw/themes/inputDecorationTheme.dart';
 
 // https://api.flutter.dev/flutter/material/material-library.html
 
@@ -36,7 +38,9 @@ ThemeData buildTheme() {
     switchTheme: buildSwitchTheme(base.switchTheme),
     sliderTheme: buildSliderTheme(base.sliderTheme),
     dialogTheme: buildDialogTheme(base.dialogTheme),
-    //inputDecorationTheme applies to TextField Widget.
+    listTileTheme: buildListTileTheme(base.listTileTheme),
+    popupMenuTheme: buildPopUpMenuTheme(base.popupMenuTheme),
+    // inputDecorationTheme applies to TextField Widget.
     inputDecorationTheme: buildInputDecorationTheme(base.inputDecorationTheme),
     textSelectionTheme: textSelectionThemeData(),
   );

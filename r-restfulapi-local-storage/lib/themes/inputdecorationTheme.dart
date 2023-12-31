@@ -30,7 +30,7 @@ InputDecorationTheme buildInputDecorationTheme(InputDecorationTheme original) {
     disabledBorder: _buildBorderStyle(Colors.black26),
     // text
     suffixStyle: buildTextStyle(colorScheme.onPrimary),
-    counterStyle: buildTextStyle(colorScheme.onPrimary, size: 12.0),
+    counterStyle: buildTextStyle(colorScheme.onPrimary),
     floatingLabelStyle: buildTextStyle(colorScheme.onPrimary),
     errorStyle: buildTextStyle(colorScheme.error),
     hintStyle: buildTextStyle(colorScheme.onPrimary),

@@ -10,10 +10,9 @@ import 'package:robbinlaw/themes/textTheme.dart';
 AppBarTheme buildAppBarTheme(AppBarTheme original) {
   return original.copyWith(
     color: colorScheme.primary,
-    titleTextStyle: GoogleFonts.oswald(
-      color: colorScheme.onPrimary,
-      fontSize: 30,
-      fontStyle: FontStyle.italic,
+    titleTextStyle: buildTextStyle(
+      colorScheme.onPrimary,
+      size: 30,
     ),
     centerTitle: true,
   );
