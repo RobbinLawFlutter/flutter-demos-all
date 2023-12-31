@@ -53,7 +53,7 @@ TextStyle? buildTextStyle(Color color, {double size = defaultFontSize, FontWeigh
     letterSpacing: defaultLetterSpacing,
   );
 }
-const double defaultFontSize = 30;
+const double defaultFontSize = 20;
 const FontWeight defaultFontWeight = FontWeight.w500;
 const FontStyle defaultFontStyle = FontStyle.normal;
 const defaultLetterSpacing = 0.09;

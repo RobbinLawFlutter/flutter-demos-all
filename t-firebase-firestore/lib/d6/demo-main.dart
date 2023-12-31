@@ -120,52 +120,56 @@ class MyPageState extends State<MyPage> {
             const SizedBox(
               height: 10,
             ),
-            ElevatedButton(
-              child: const Text("Sign Up"),
-              onPressed: () async {
-                try {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    //textEditingController1.clear();
-                    //textEditingController2.clear();
-                  }
-                  await Authorization().signUp(email, password);
-                  //email = '';
-                  //password = '';
-                  setState(() {});
-                } catch (e) {
-                  print(e);
-                }
-              },
-            ),
-            ElevatedButton(
-              child: const Text("Log In"),
-              onPressed: () async {
-                try {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    //textEditingController1.clear();
-                    //textEditingController2.clear();
-                  }
-                  await Authorization().logIn(email, password);
-                  //email = '';
-                  //password = '';
-                  setState(() {});
-                } catch (e) {
-                  print(e);
-                }
-              },
-            ),
-            ElevatedButton(
-              child: const Text("Log Out"),
-              onPressed: () async {
-                try {
-                  await Authorization().logOut();
-                  setState(() {});
-                } catch (e) {
-                  print(e);
-                }
-              },
+            Row(
+              children: [
+                ElevatedButton(
+                  child: const Text("Sign Up"),
+                  onPressed: () async {
+                    try {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        //textEditingController1.clear();
+                        //textEditingController2.clear();
+                      }
+                      await Authorization().signUp(email, password);
+                      //email = '';
+                      //password = '';
+                      setState(() {});
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text("Log In"),
+                  onPressed: () async {
+                    try {
+                      if (formKey.currentState!.validate()) {
+                        formKey.currentState!.save();
+                        //textEditingController1.clear();
+                        //textEditingController2.clear();
+                      }
+                      await Authorization().logIn(email, password);
+                      //email = '';
+                      //password = '';
+                      setState(() {});
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                ),
+                ElevatedButton(
+                  child: const Text("Log Out"),
+                  onPressed: () async {
+                    try {
+                      await Authorization().logOut();
+                      setState(() {});
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                ),
+              ],
             ),
           ],
         ),

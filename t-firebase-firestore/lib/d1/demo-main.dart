@@ -30,7 +30,7 @@ class MyPageState extends State<MyPage> {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        child: const Text('Press'),
+        child: const Text('START'),
         onPressed: () {
           performTasks();
         },
