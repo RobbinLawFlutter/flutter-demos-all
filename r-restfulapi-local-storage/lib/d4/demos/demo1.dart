@@ -1,30 +1,25 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
+// ignore_for_file: file_names, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 
-// ListView Widget of the Week
-// https://www.youtube.com/watch?v=KJpkjHGiI5A&vl=en
- 
-class Demo extends StatelessWidget {
+class Demo1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'D4 - ListView',
-        ),
+        title: const Text('Demo1'),
       ),
-      body: MyPage(),
+      body: MyDemo(),
     );
   }
 }
 
-class MyPage extends StatefulWidget {
+class MyDemo extends StatefulWidget {
   @override
-  State<MyPage> createState() => MyPageState();
+  MyDemoState createState() => MyDemoState();
 }
 
-class MyPageState extends State<MyPage> {
+class MyDemoState extends State<MyDemo> {
   List<String> listItems = [];
   final TextEditingController eCtrl = TextEditingController();
   @override

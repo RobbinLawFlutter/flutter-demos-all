@@ -12,6 +12,8 @@ dependencies:
 
   google_fonts:
   font_awesome_flutter:
+  sqflite:
+  path:
 
 dev_dependencies:
   flutter_test:

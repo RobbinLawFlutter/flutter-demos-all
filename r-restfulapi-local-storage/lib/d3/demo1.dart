@@ -1,33 +1,31 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import, avoid_print
+// ignore_for_file: avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
 import 'dart:io';
 
-class Demo extends StatelessWidget {
+class Demo1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'D3 - Async/Await',
-        ),
+        title: const Text('Demo1'),
       ),
-      body: MyPage(),
+      body: MyDemo(),
     );
   }
 }
 
-class MyPage extends StatefulWidget {
+class MyDemo extends StatefulWidget {
   @override
-  State<MyPage> createState() => MyPageState();
+  MyDemoState createState() => MyDemoState();
 }
 
-class MyPageState extends State<MyPage> {
+class MyDemoState extends State<MyDemo> {
   @override
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        child: const Text('Start'),
+        child: const Text('Press'),
         onPressed: () {
           //performTasks1And2();
           //performTasks3And4();
@@ -117,4 +115,3 @@ void task6(String data) {
   print('Task 6 start');
   print('Task 6 end with $data');
 }
-

@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/d6/views/home.dart';
 
 class Demo extends StatelessWidget {
   @override
@@ -11,19 +12,7 @@ class Demo extends StatelessWidget {
           'D6 - ',
         ),
       ),
-      body: MyPage(),
+      body: HomeView(),
     );
-  }
-}
-
-class MyPage extends StatefulWidget {
-  @override
-  State<MyPage> createState() => MyPageState();
-}
-
-class MyPageState extends State<MyPage> {
-  @override
-  Widget build(BuildContext context) {
-    return const Center();
   }
 }

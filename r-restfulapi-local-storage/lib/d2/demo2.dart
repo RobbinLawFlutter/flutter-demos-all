@@ -1,39 +1,6 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, unused_import
+// ignore_for_file: avoid_print, use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-
-class Demo extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'D2 - Maps & Lists NOT USED',
-        ),
-      ),
-      body: MyPage(),
-    );
-  }
-}
-
-class MyPage extends StatefulWidget {
-  @override
-  State<MyPage> createState() => MyPageState();
-}
-
-class MyPageState extends State<MyPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        child: const Text('Start'),
-        onPressed: () {
-          performTasks();
-        },
-      ),
-    );
-  }
-}
 
 class CustomerOne {
   CustomerOne(this.name, this.age);
@@ -61,6 +28,37 @@ class CustomerTwo {
   @override
   String toString() {
     return '/ $name || $age /';
+  }
+}
+
+class Demo2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Demo2-MapToList and ListToMap Con'),
+      ),
+      body: MyDemo(),
+    );
+  }
+}
+
+class MyDemo extends StatefulWidget {
+  @override
+  MyDemoState createState() => MyDemoState();
+}
+
+class MyDemoState extends State<MyDemo> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        child: const Text('Press'),
+        onPressed: () {
+          performTasks();
+        },
+      ),
+    );
   }
 }
 
