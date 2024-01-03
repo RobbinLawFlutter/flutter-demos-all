@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
+// ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print, unused_local_variable
 
 import 'package:flutter/material.dart';
 
