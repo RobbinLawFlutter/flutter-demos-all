@@ -10,11 +10,7 @@ TextButtonThemeData buildTextButtonThemeData(TextButtonThemeData original) {
         backgroundColor: MaterialStateProperty.all(colorScheme.primary),
         foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
         textStyle: MaterialStateProperty.all(
-          const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 20,
-            letterSpacing: defaultLetterSpacing,
-          ),
+          buildTextStyle(colorScheme.onPrimary, size: 20),
         )),
   );
 }
@@ -27,11 +23,7 @@ OutlinedButtonThemeData buildOutlinedButtonThemeData(
         //backgroundColor: MaterialStateProperty.all(_colorScheme.background),
         foregroundColor: MaterialStateProperty.all(colorScheme.onPrimary),
         textStyle: MaterialStateProperty.all(
-          const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 20,
-            letterSpacing: defaultLetterSpacing,
-          ),
+          buildTextStyle(colorScheme.onPrimary, size: 20),
         )),
   );
 }
@@ -47,11 +39,7 @@ ElevatedButtonThemeData buildElevatedButtonThemeData(
         foregroundColor:
             MaterialStateProperty.resolveWith<Color>(_getForegroundColor),
         textStyle: MaterialStateProperty.all(
-          const TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 25,
-            letterSpacing: defaultLetterSpacing,
-          ),
+          buildTextStyle(colorScheme.onPrimary, size: 20),
         )),
   );
 }

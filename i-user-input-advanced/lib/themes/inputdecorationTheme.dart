@@ -29,14 +29,14 @@ InputDecorationTheme buildInputDecorationTheme(InputDecorationTheme original) {
     focusedBorder: _buildBorderStyle(colorScheme.primary),
     disabledBorder: _buildBorderStyle(Colors.black26),
     // text
-    suffixStyle: buildTextStyle(colorScheme.onPrimary),
-    counterStyle: buildTextStyle(colorScheme.onPrimary),
-    floatingLabelStyle: buildTextStyle(colorScheme.onPrimary),
-    errorStyle: buildTextStyle(colorScheme.error),
-    hintStyle: buildTextStyle(colorScheme.onPrimary),
-    helperStyle: buildTextStyle(colorScheme.onPrimary),
-    labelStyle: buildTextStyle(colorScheme.onPrimary),
-    prefixStyle: buildTextStyle(colorScheme.onPrimary),
+    suffixStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    counterStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    floatingLabelStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    errorStyle: buildTextStyle(colorScheme.error, size: 20),
+    hintStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    helperStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    labelStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    prefixStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
     // icons
     iconColor: colorScheme.onPrimary,
   );
