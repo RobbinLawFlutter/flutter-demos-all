@@ -49,7 +49,7 @@ ElevatedButtonThemeData buildElevatedButtonThemeData(
         textStyle: MaterialStateProperty.all(
           const TextStyle(
             fontWeight: FontWeight.w500,
-            fontSize: 20,
+            fontSize: 25,
             letterSpacing: defaultLetterSpacing,
           ),
         )),

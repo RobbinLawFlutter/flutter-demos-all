@@ -9,7 +9,7 @@ import 'package:robbinlaw/themes/textTheme.dart';
 DialogTheme buildDialogTheme(DialogTheme original) {
   return original.copyWith(
     backgroundColor: Colors.white,
-    titleTextStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
-    contentTextStyle: buildTextStyle(colorScheme.onPrimary, size: 20),
+    titleTextStyle: buildTextStyle(colorScheme.onPrimary, size: 25),
+    contentTextStyle: buildTextStyle(colorScheme.onPrimary, size: 25),
   );
 }

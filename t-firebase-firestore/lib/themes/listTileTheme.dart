@@ -10,15 +10,15 @@ ListTileThemeData buildListTileTheme(ListTileThemeData original) {
   return original.copyWith(
     titleTextStyle: buildTextStyle(
       colorScheme.onPrimary,
-      size: 20,
+      size: 30,
     ),
     leadingAndTrailingTextStyle: buildTextStyle(
       colorScheme.onPrimary,
-      size: 20,
+      size: 30,
     ),
     subtitleTextStyle: buildTextStyle(
       colorScheme.onPrimary,
-      size: 20,
+      size: 30,
     ),
   );
 }

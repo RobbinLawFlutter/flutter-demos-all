@@ -3,19 +3,18 @@
 import 'package:flutter/material.dart';
 
 ColorScheme buildColorTheme(ColorScheme original) {
-  return original
-      .copyWith();
+  return original.copyWith();
 }
 
 const ColorScheme colorScheme = ColorScheme(
   primary: basilGreen100,
   onPrimary: basilGreen800,
-  secondary: pink50,
-  onSecondary: brown600,
+  secondary: basilNeutral,
+  onSecondary: basilOrange800,
   surface: surfaceWhite,
   onSurface: basilGreen800,
   background: backgroundWhite,
-  onBackground: brown900,
+  onBackground: basilGreen500,
   error: errorRed,
   onError: surfaceWhite,
   brightness: Brightness.light,
@@ -57,8 +56,8 @@ const Color errorRed = Color(0xFFC5032B);
 const Color surfaceWhite = Color(0xFFFFFBFA);
 const Color backgroundWhite = Colors.white;
 
-const Color basilGreen800 = Color(0xFF356859);
-const Color basilGreen500 = Color(0xFF37966F);
-const Color basilGreen100 = Color(0xFFB9E4C9);
-const Color basilOrange800 = Color(0xFFFD5523);
-const Color basilNeutral = Color(0xFFFFFBE6);
+const Color basilGreen800 = Color.fromARGB(255, 53, 104, 89);
+const Color basilGreen500 = Color.fromARGB(255, 55, 150, 111);
+const Color basilGreen100 = Color.fromARGB(100, 185, 228, 201);
+const Color basilOrange800 = Color.fromARGB(255, 253, 85, 35);
+const Color basilNeutral = Color.fromARGB(255, 255, 251, 230);
