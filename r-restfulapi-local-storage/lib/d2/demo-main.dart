@@ -8,7 +8,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D2 - Maps & Lists NOT USED',
+          'D2 - Maps/Lists NU',
         ),
       ),
       body: MyPage(),
