@@ -121,6 +121,7 @@ class MyPageState extends State<MyPage> {
               height: 10,
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
                   child: const Text("Sign Up"),

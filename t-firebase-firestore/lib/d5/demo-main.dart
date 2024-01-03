@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - FireStore-Name-Votes',
+          'D5 - FireStore-Votes',
         ),
       ),
       body: MyPage(),

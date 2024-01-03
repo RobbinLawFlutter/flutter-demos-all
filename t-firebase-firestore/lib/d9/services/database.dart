@@ -62,10 +62,10 @@ class Database {
           .doc(appDataId)
           .update({"done": newDoneValue});
       print('Database updateAppData: SUCCESS');
-      MySnackBar(text: 'DB update $appDataId: SUCCESS').show();
+      MySnackBar(text: 'DB update: SUCCESS').show();
     } catch (e) {
       print('Database updateAppData: CATCH $e.toString');
-      MySnackBar(text: 'DB update $appDataId: FAIL').show();
+      MySnackBar(text: 'DB update: FAIL').show();
     }
   }
 
@@ -79,10 +79,10 @@ class Database {
           .doc(appDataId)
           .delete();
       print('Database deleteAppData: SUCCESS');
-      MySnackBar(text: 'DB update $appDataId: SUCCESS').show();
+      MySnackBar(text: 'DB delete: SUCCESS').show();
     } catch (e) {
       print('Database deleteAppData: CATCH $e.toString');
-      MySnackBar(text: 'DB update $appDataId: FAIL').show();
+      MySnackBar(text: 'DB delete: FAIL').show();
     }
   }
 }

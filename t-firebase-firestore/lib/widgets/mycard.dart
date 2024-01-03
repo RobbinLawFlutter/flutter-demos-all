@@ -6,7 +6,6 @@ import 'package:robbinlaw/widgets/mysnackbar.dart';
 import 'package:robbinlaw/d9/services/database.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
-
 //Dismissible Widget of the Week 1min.
 //https://www.youtube.com/watch?v=iEMgjrfuc58&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=29
 
@@ -20,8 +19,7 @@ class MyCardWithSlidable extends StatelessWidget {
   final String userId;
   final QueryDocumentSnapshot<Map<String, dynamic>> document;
 
-  const MyCardWithSlidable(
-      {required this.userId, required this.document});
+  const MyCardWithSlidable({required this.userId, required this.document});
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +39,8 @@ class MyCardWithSlidable extends StatelessWidget {
         children: [
           // A SlidableAction can have an icon and/or a label.
           SlidableAction(
-            onPressed: (context) {
-              try {
-                Database().deleteAppData(userId, document.id);
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'delete: SUCCESS').get());
-              } catch (e) {
-                ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'delete: FAILED').get());
-              }
+            onPressed: (context) async {
+              await Database().deleteAppData(userId, document.id);
             },
             backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
@@ -58,8 +49,7 @@ class MyCardWithSlidable extends StatelessWidget {
           ),
           SlidableAction(
             onPressed: (context) {
-              ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'shared: SUCCESS').get());
+              MySnackBar(text: 'share: SUCCESS').show();
             },
             backgroundColor: const Color(0xFF21B7CA),
             foregroundColor: Colors.white,
@@ -85,15 +75,8 @@ class MyCardWithSlidable extends StatelessWidget {
               ),
               Checkbox(
                 value: document.data()['done'],
-                onChanged: (newValue) {
-                  try {
-                    Database().updateAppData(newValue, userId, document.id);
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'update: SUCCESS').get());
-                  } catch (e) {
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'update: FAILED').get());
-                  }
+                onChanged: (newValue) async {
+                  await Database().updateAppData(newValue, userId, document.id);
                 },
               ),
             ],
@@ -108,8 +91,7 @@ class MyCardWithDismissible extends StatelessWidget {
   final String userId;
   final QueryDocumentSnapshot<Map<String, dynamic>> document;
 
-  const MyCardWithDismissible(
-      {required this.userId, required this.document});
+  const MyCardWithDismissible({required this.userId, required this.document});
 
   @override
   Widget build(BuildContext context) {
@@ -119,15 +101,8 @@ class MyCardWithDismissible extends StatelessWidget {
       key: Key('app-${document.id}'),
       background: Container(color: Colors.red),
       direction: DismissDirection.endToStart,
-      onDismissed: (direction) {
-        try {
-          Database().deleteAppData(userId, document.id);
-          ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'delete: SUCCESS').get());
-        } catch (e) {
-          ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'delete: FAILED').get());
-        }
+      onDismissed: (direction) async {
+        await Database().deleteAppData(userId, document.id);
       },
       child: Card(
         margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
@@ -146,15 +121,8 @@ class MyCardWithDismissible extends StatelessWidget {
               ),
               Checkbox(
                 value: document.data()['done'],
-                onChanged: (newValue) {
-                  try {
-                    Database().updateAppData(newValue, userId, document.id);
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'update: SUCCESS').get());
-                  } catch (e) {
-                    ScaffoldMessenger.of(context)
-                    .showSnackBar(MySnackBar(text: 'update: SUCCESS').get());
-                  }
+                onChanged: (newValue) async {
+                  await Database().updateAppData(newValue, userId, document.id);
                 },
               ),
             ],
