@@ -42,40 +42,35 @@ class HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     print('HomeView build begin');
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Weather Channel'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            child: const Text(
-              'Delete All Records and Db',
-            ),
-            onPressed: () async {
-              await _databaseService.deleteDb();
-              await _databaseService.getOrCreateDatabaseHandle();
-              _list = await _databaseService.getAllRecordsFromDb();
-              await _databaseService.printAllRecordsInDbToConsole();
-              setState(() {});
-            },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          child: const Text(
+            'Delete All Records and Db',
           ),
-          ElevatedButton(
-            child: const Text(
-              'Add City Weather',
-            ),
-            onPressed: () {
-              _inputCity();
-            },
+          onPressed: () async {
+            await _databaseService.deleteDb();
+            await _databaseService.getOrCreateDatabaseHandle();
+            _list = await _databaseService.getAllRecordsFromDb();
+            await _databaseService.printAllRecordsInDbToConsole();
+            setState(() {});
+          },
+        ),
+        ElevatedButton(
+          child: const Text(
+            'Add City Weather',
           ),
-          //We must use an Expanded widget to get
-          //the dynamic ListView to play nice
-          //with the TextButton.
-          //StockList(stocks: _stockList),
-          Expanded(child: ModelElementList(modelElements: _list)),
-        ],
-      ),
+          onPressed: () {
+            _inputCity();
+          },
+        ),
+        //We must use an Expanded widget to get
+        //the dynamic ListView to play nice
+        //with the TextButton.
+        //StockList(stocks: _stockList),
+        Expanded(child: ModelElementList(modelElements: _list)),
+      ],
     );
   }
 
@@ -125,8 +120,8 @@ class HomeViewState extends State<HomeView> {
                     print('User entered City: $_citySymbol');
 
                     try {
-                      var data = await _weatherService
-                          .getCityWeatherData(_citySymbol);
+                      var data =
+                          await _weatherService.getCityWeatherData(_citySymbol);
                       if (data == null) {
                         print(
                             "Call to getCityWeatherData failed to return data");

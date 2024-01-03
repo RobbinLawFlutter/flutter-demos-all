@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D5 - ',
+          'D5 - SqFlite',
         ),
       ),
       body: HomeView(),

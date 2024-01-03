@@ -33,41 +33,36 @@ class HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('db Demo'),
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            child: const Text(
-              'Delete All Records in Database',
-            ),
-            onPressed: () async {
-              await _databaseService.deleteDb();
-              await _databaseService.getOrCreateDatabaseHandle();
-              _dogList = await _databaseService.getAllDogsFromDb();
-              await printAllDogsInListToConsole(_dogList);
-              setState(() {});
-            },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        ElevatedButton(
+          child: const Text(
+            'Delete Database',
           ),
-          ElevatedButton(
-            child: const Text(
-              'Add Dog',
-            ),
-            onPressed: () {
-              _addDogToDb();
-            },
+          onPressed: () async {
+            await _databaseService.deleteDb();
+            await _databaseService.getOrCreateDatabaseHandle();
+            _dogList = await _databaseService.getAllDogsFromDb();
+            await printAllDogsInListToConsole(_dogList);
+            setState(() {});
+          },
+        ),
+        ElevatedButton(
+          child: const Text(
+            'Add Dog',
           ),
-          //We must use an Expanded widget to get
-          //the dynamic ListView to play nice
-          //with the RaisedButtons.
-          Expanded(
-            child: DogList(dogs: _dogList),
-          ),
-        ],
-      ),
+          onPressed: () {
+            _addDogToDb();
+          },
+        ),
+        //We must use an Expanded widget to get
+        //the dynamic ListView to play nice
+        //with the RaisedButtons.
+        Expanded(
+          child: DogList(dogs: _dogList),
+        ),
+      ],
     );
   }
 

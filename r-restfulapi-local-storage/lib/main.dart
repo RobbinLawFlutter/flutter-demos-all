@@ -52,42 +52,42 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 1,
               child: ListTile(
-                title: Text('D1 - '),
+                title: Text('D1 - Maps'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 2,
               child: ListTile(
-                title: Text('D2 - '),
+                title: Text('D2 - Maps/Lists NU'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 3,
               child: ListTile(
-                title: Text('D3 - '),
+                title: Text('D3 - Async/Await'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 4,
               child: ListTile(
-                title: Text('D4 - '),
+                title: Text('D4 - ListView'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 5,
               child: ListTile(
-                title: Text('D5 - '),
+                title: Text('D5 - SqLite'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 6,
               child: ListTile(
-                title: Text('D6 - '),
+                title: Text('D6 - Weather'),
               ),
             ),
             const PopupMenuDivider(),
@@ -190,7 +190,7 @@ class RootState extends State<Root> {
             }
           },
         ),
-        title: const Text('Template'),
+        title: const Text('RestAPI/Storage'),
       ),
       body: const Center(),
     );
