@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D2 - Switch-Button-Enable',
+          'D2 - Switch-Button',
         ),
       ),
       body: MyPage(),

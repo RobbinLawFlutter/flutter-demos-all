@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D3 - Button-Disappear',
+          'D3 - Button-Gone',
         ),
       ),
       body: MyPage(),

@@ -8,7 +8,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D1 - Switch Widget',
+          'D1 - Switch',
         ),
       ),
       body: MyPage(),
