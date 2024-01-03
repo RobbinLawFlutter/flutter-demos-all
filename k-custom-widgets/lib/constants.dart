@@ -12,7 +12,7 @@ Color kTextColor = colorScheme.onSecondary;
 
 
 TextStyle kLabelTextStyle = TextStyle(
-  fontSize: 18,
+  fontSize: 25,
   color: kTextColor,
 );
 

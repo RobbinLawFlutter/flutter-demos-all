@@ -11,7 +11,7 @@ import 'package:robbinlaw/themes/textTheme.dart';
 SliderThemeData buildSliderTheme(SliderThemeData original) {
   return SliderThemeData(
     activeTrackColor: colorScheme.onPrimary,
-    inactiveTrackColor: colorScheme.onSecondary,
+    inactiveTrackColor: colorScheme.onBackground,
     thumbColor: colorScheme.secondary,
     overlayColor: colorScheme.onPrimary.withOpacity(0.5),
     thumbShape:

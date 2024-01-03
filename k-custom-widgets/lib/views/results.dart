@@ -18,7 +18,7 @@ class Results extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dietary Stats & BMI Calculator'),
+        title: const Text('BMI Calculator'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -28,30 +28,85 @@ class Results extends StatelessWidget {
           Expanded(
             flex: 5,
             child: ReuseableCardEnhanced(
-              myColor: kActiveCardColor,
+              myColor: kInactiveCardColor,
               reusableCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    'Diet Class: $dietClassString',
-                    style: kTitleTextStyle,
+                  Container(
+                    decoration: BoxDecoration(color: kActiveCardColor),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.fromLTRB(30,5,30,5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Diet Class: ', style: kLabelTextStyle),
+                        Text(
+                          ' $dietClassString',
+                          style: kTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'Height: $height cm',
-                    style: kTitleTextStyle,
+                  Container(
+                    decoration: BoxDecoration(color: kActiveCardColor),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.fromLTRB(30,5,30,5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Height: ', style: kLabelTextStyle),
+                        Text(
+                          ' $height cm',
+                          style: kTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'Weight: $weight kg',
-                    style: kTitleTextStyle,
+                  Container(
+                    decoration: BoxDecoration(color: kActiveCardColor),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.fromLTRB(30,5,30,5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Weight: ', style: kLabelTextStyle),
+                        Text(
+                          ' $weight kg',
+                          style: kTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'Age: $age',
-                    style: kTitleTextStyle,
+                  Container(
+                    decoration: BoxDecoration(color: kActiveCardColor),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.fromLTRB(30,5,30,5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Age: ', style: kLabelTextStyle),
+                        Text(
+                          ' $age',
+                          style: kTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
-                  Text(
-                    'BMI: $bmiResult',
-                    style: kTitleTextStyle,
+                  Container(
+                    decoration: BoxDecoration(color: kActiveCardColor),
+                    padding: const EdgeInsets.all(10),
+                    margin: const EdgeInsets.fromLTRB(30,5,30,5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('BMI: ', style: kLabelTextStyle),
+                        Text(
+                          ' $bmiResult',
+                          style: kTitleTextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

@@ -2,23 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
-// D1 - 
+// D1 - No-Custom-Widgets
 import 'package:robbinlaw/d1/demo-main.dart' as d1;
-// D2 - 
+// D2 - 1-Custom-Widget
 import 'package:robbinlaw/d2/demo-main.dart' as d2;
-// D3 - 
+// D3 - Icons
 import 'package:robbinlaw/d3/demo-main.dart' as d3;
-// D4 - 
+// D4 - 2-Custom-Widgets
 import 'package:robbinlaw/d4/demo-main.dart' as d4;
-// D5 - 
+// D5 - Modularization
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
-// D6 - 
+// D6 - Ternary Operator
 import 'package:robbinlaw/d6/demo-main.dart' as d6;
-// D7 - 
+// D7 - Functions as Args
 import 'package:robbinlaw/d7/demo-main.dart' as d7;
-// D8 - 
+// D8 - Many-Custom-Widgets
 import 'package:robbinlaw/d8/demo-main.dart' as d8;
-// D9 - 
+// D9 - Navigation
 import 'package:robbinlaw/d9/demo-main.dart' as d9;
 
 void main(){
@@ -52,63 +52,63 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 1,
               child: ListTile(
-                title: Text('D1 - '),
+                title: Text('D1 - No-Custom'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 2,
               child: ListTile(
-                title: Text('D2 - '),
+                title: Text('D2 - 1-Custom'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 3,
               child: ListTile(
-                title: Text('D3 - '),
+                title: Text('D3 - Icons'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 4,
               child: ListTile(
-                title: Text('D4 - '),
+                title: Text('D4 - 2-Customs'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 5,
               child: ListTile(
-                title: Text('D5 - '),
+                title: Text('D5 - Modularization'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 6,
               child: ListTile(
-                title: Text('D6 - '),
+                title: Text('D6 - Ternary'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 7,
               child: ListTile(
-                title: Text('D7 - '),
+                title: Text('D7 - Functions/Args'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 8,
               child: ListTile(
-                title: Text('D8 - '),
+                title: Text('D8 - Many-Custom'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 9,
               child: ListTile(
-                title: Text('D9 - '),
+                title: Text('D9 - Navigation'),
               ),
             ),
           ],

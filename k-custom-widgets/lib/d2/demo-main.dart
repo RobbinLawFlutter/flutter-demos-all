@@ -14,7 +14,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D2 - First Custom Widget',
+          'D2 - 1-Custom',
         ),
       ),
       body: MyPage(),
