@@ -9,6 +9,6 @@ import 'package:robbinlaw/themes/textTheme.dart';
 SnackBarThemeData buildSnackBarTheme(SnackBarThemeData original) {
   return original.copyWith(
     backgroundColor: colorScheme.primary,
-    contentTextStyle: TextStyle(color: colorScheme.onPrimary)
+    contentTextStyle: buildTextStyle(colorScheme.onPrimary, size: 30),
   );
 }

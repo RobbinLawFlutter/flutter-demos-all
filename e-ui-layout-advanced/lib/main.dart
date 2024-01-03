@@ -14,12 +14,6 @@ import 'package:robbinlaw/d4/demo-main.dart' as d4;
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
 // D6 - 
 import 'package:robbinlaw/d6/demo-main.dart' as d6;
-// D7 - 
-import 'package:robbinlaw/d7/demo-main.dart' as d7;
-// D8 - 
-import 'package:robbinlaw/d8/demo-main.dart' as d8;
-// D9 - 
-import 'package:robbinlaw/d9/demo-main.dart' as d9;
 
 void main(){
   runApp(MyApp());

@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:robbinlaw/widgets/mysnackbar.dart';
 
 // https://api.flutter.dev/flutter/material/material-library.html
 
@@ -13,9 +14,6 @@ import 'package:flutter/material.dart';
 // ScaffoldMessenger Widget of the Week
 // https://youtu.be/lytQi-slT5Y
 
-// Proper use of the ScaffoldMessenger.of
-// https://docs.flutter.dev/release/breaking-changes/scaffold-messenger
-
 // https://flutterdesk.com/how-to-show-custom-snackbar-in-flutter/
 
 class Demo extends StatelessWidget {
@@ -24,7 +22,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D3 - Buttons with Snackbar',
+          'D3 - Buttons/Snackbar',
         ),
       ),
       body: MyPage(),
@@ -67,74 +65,14 @@ class MyPage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              dynamic snackBar = mySnackBar('hey man');
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-              // Respond to button press
-              print('You Clicked the Elevated Button');
+              MySnackBar(text: 'Hey Man').show();
+              print('You printed a Snackbar');
             },
             child: const Text("SHOW SNACKBAR"),
           ),
-          SnackbarButton(),
+          
         ],
       ),
-    );
-  }
-
-  SnackBar mySnackBar(String text) {
-    return SnackBar(
-      behavior: SnackBarBehavior.floating,
-      content: Row(
-        children: [
-          const Icon(Icons.accessibility_new_rounded),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(text),
-        ],
-      ),
-      action: SnackBarAction(
-        label: 'Click Me',
-        onPressed: () {
-          print('hey you clicked on the snackbar Action');
-        },
-      ),
-    );
-  }
-}
-
-class SnackbarButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
-        // building the snackBar
-        dynamic snackBar = SnackBar(
-          behavior: SnackBarBehavior.floating,
-          //behavior: SnackBarBehavior.fixed,
-          //duration: const Duration(seconds: 10),
-          content: const Row(
-            children: [
-              Icon(Icons.favorite),
-              SizedBox(
-                width: 10,
-              ),
-              Text('Hey There'),
-            ],
-          ),
-          action: SnackBarAction(
-            label: 'Click Me',
-            onPressed: () {
-              print('hey you clicked on the snackbar Action');
-            },
-          ),
-        );
-        // Displaying the snackBar.
-        // Find the Scaffold in the
-        // widget tree and use
-        // it to show a SnackBar.
-        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      },
-      child: const Text('SHOW SNACKBAR'),
     );
   }
 }
