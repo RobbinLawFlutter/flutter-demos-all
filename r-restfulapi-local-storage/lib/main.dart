@@ -2,17 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/themes/theme.dart';
-// D1 - 
+// D1 - Maps
 import 'package:robbinlaw/d1/demo-main.dart' as d1;
-// D2 - 
+// D2 - Maps/Lists NU
 import 'package:robbinlaw/d2/demo-main.dart' as d2;
-// D3 - 
+// D3 - Async/Await
 import 'package:robbinlaw/d3/demo-main.dart' as d3;
-// D4 - 
+// D4 - ListView
 import 'package:robbinlaw/d4/demo-main.dart' as d4;
-// D5 - 
+// D5 - SqLite
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
-// D6 - 
+// D6 - Weather App
 import 'package:robbinlaw/d6/demo-main.dart' as d6;
 // D7 - 
 import 'package:robbinlaw/d7/demo-main.dart' as d7;

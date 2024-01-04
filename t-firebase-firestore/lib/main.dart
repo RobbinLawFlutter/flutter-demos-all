@@ -14,10 +14,11 @@ import 'package:robbinlaw/d3/demo-main.dart' as d3;
 import 'package:robbinlaw/d4/demo-main.dart' as d4;
 // D5 - FireStore-Name-Votes
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
+// D6 - Firebase-Auth
 import 'package:robbinlaw/d6/demo-main.dart' as d6;
 import 'package:robbinlaw/d7/demo-main.dart' as d7;
 import 'package:robbinlaw/d8/demo-main.dart' as d8;
-
+// D9 - TODO
 import 'package:robbinlaw/d9/demo-main.dart' as d9;
 //import 'package:robbinlaw/views/root.dart';
 
