@@ -32,7 +32,7 @@
 - [My Demos Repo on GitHub](https://github.com/RobbinLawFlutter/flutter-demos-all)
 - From the link above, clone my repo to your machine.
   - from the green dropdown copy the link to your clipboard.
-  - in VSCode run the command `Git:Clone`
+  - in VSCode run the command `View/CommandPallet/Git:Clone`
   - clone the repo to `C:\FlutterDev\FlutterRepos`
 
 ---
@@ -85,6 +85,7 @@
 ## Test Drive Tool Chain
 
 - Test drive our tools. When within VS Code go to `View/CommandPallet/Flutter: New Project`, name it `testdrive1` and store it in `C:\FlutterDev\FlutterRepos`.
+- Start an android virtual machine from `Android Studio` if not already started.
 - If needed connect VS Code to the virtual machine by clicking on `No Device` in the lower right corner of VS Code.
 - Run the app without debugging. The first time it will take a while to compile and download to the vm.
 
