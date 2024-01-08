@@ -65,7 +65,7 @@
 
 - [Android Studio Website](https://developer.android.com/studio/releases)
 - Download `Android Studio` from the link above or using the instructions at `flutter.dev`. Note `Android Studio` is to be stored in `C:\FlutterDev\AndroidStudio`.
-- Start `Android Studio` and if this is the first time a `wizard` should help you `configure Android Studio` and download the `AndroidSDK`. Choose `custom install` in order to be able to pick a custom folder to store the `AndroidSDK` in. The `AndroidSDK` is to be stored in `C:\FlutterDev\AndroidSDK`. Also you must tell Android Studio where the `Android SDK` is located.
+- Start `Android Studio` and if this is the first time a `wizard` should help you `configure Android Studio` and download the `AndroidSDK`. Choose `custom install` in order to be able to pick a custom folder to store the `AndroidSDK` in. The `AndroidSDK` is to be stored in `C:\FlutterDev\AndroidSDK`. Also you must tell `Android Studio` where the `Android SDK` is located.
 - With `Android Studio` started and at the `landing page`, under `more actions` click on the `SDK Manager`.
 - While in the `SDK Manager` make sure that the location of the `Android SDK` is correct, `C:\FlutterDev\AndroidSDK`. Also under the `SDK Tools tab`, make sure that the check box is checked for `Android SDK Command Line Tools`, and then click `Apply` and then `OK`.
 - With `Android Studio` started and at the `landing page`, under `more actions` click on the `virtual device manager` and create a virtual device if one has not already been created for you. Use the instructions as per document called `Create a Virtual Machine` located at `flutter.dev`. Launch the new Virtual Machine.
