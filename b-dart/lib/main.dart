@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 // This is where the app starts "entry point".
 void main() {
   print('This is our first Dart App');
@@ -32,11 +34,11 @@ void main() {
   p2.changePropsWithNamedParameters(age:35);
   p2.printProps();
 
-  var p3 = PersonNewWay(name: 'Hey Man');
+  var p3 = PersonNewWay(myName: 'Hey Man');
   p3.printProps();
   p3.changeProps(age: 80);
   p3.printProps();
-  var p4 = PersonNewWay.printNameAndAge(name: 'Jimbo');
+  var p4 = PersonNewWay.printNameAndAge(myName: 'Jimbo');
   p4.printProps();
   
 }
@@ -83,25 +85,28 @@ class PersonOldWay {
 
 //A class declaration/definition with a greedy constructor.
 class PersonNewWay {
-  String name;
+  String myName;
   int age;
 
   //Explicit greedy constructor with named parameters that are all optional.
   //Only the constructor/s can use the "this" key word in their
   //parameter list.
-  PersonNewWay({this.name = '', this.age = 0});
+  PersonNewWay({this.myName = '', this.age = 0});
   //Multiple constructors
-  PersonNewWay.printNameAndAge({this.name = '', this.age = 0}) {
-    print('My name is: $name and age: $age');
+  PersonNewWay.printNameAndAge({this.myName = '', this.age = 0}) {
+    print('My name is: $myName and age: $age');
   }
 
   void changeProps({String name = '', int age = 0}) {
-    this.name = name;
+    //Because of different property and parameter names
+    myName = name;
+    //When a parameter name is the same as the property name
+    //we must use "this" to distinguish.
     this.age = age;
   }
 
   void printProps() {
-    print('My name is: $name');
+    print('My name is: $myName');
     print('My age is: $age');
   }
 }
