@@ -84,8 +84,8 @@
 
 ## Test Drive Tool Chain
 
-- Test drive our tools. When within VS Code go to `View/CommandPallet/Flutter: New Project`, name it `testdrive1` and store it in `C:\FlutterDev\FlutterRepos`.
-- Start an android virtual machine from `Android Studio` if not already started.
+- Before we create a new `Project`, we need to have our `Android Virtual Machine` running. From within `Android Studio` under `more actions` click on the `virtual device manager`, and start a vm.
+- When within VS Code go to `View/CommandPallet/Flutter: New Project`, name it `testDrive1` and store it in `C:\FlutterDev\FlutterRepos`.
 - If needed connect VS Code to the virtual machine by clicking on `No Device` in the lower right corner of VS Code.
 - Run the app without debugging. The first time it will take a while to compile and download to the vm.
 
