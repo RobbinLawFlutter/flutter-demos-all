@@ -86,7 +86,7 @@ class Demo extends StatelessWidget {
             Positioned(
               bottom: 90,
               right: 100,
-              child: Image.asset('./assets/images/bottle.jpg'),
+              child: Image.asset('./lib/assets/images/bottle.jpg'),
             ),
             Positioned(
               bottom: 120,

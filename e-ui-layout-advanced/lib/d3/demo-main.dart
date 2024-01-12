@@ -28,7 +28,7 @@ class Demo extends StatelessWidget {
               child: CircleAvatar(
                 radius: 150,
                 backgroundColor: Colors.blue,
-                backgroundImage: AssetImage('./assets/images/bottle.jpg'),
+                backgroundImage: AssetImage('./lib/assets/images/bottle.jpg'),
               ),
             ),
             const Padding(

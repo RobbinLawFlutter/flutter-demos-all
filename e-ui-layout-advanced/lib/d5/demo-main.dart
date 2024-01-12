@@ -62,7 +62,7 @@ class Demo extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(8)),
           ),
           margin: const EdgeInsets.all(4),
-          child: Image.asset('./assets/images/pic$imageIndex.jpg'),
+          child: Image.asset('./lib/assets/images/pic$imageIndex.jpg'),
         ),
       );
 }
