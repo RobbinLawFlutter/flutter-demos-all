@@ -70,7 +70,7 @@ class DiceState extends State<Dice> {
               },
               // If _LeftDiceNumber becomes DIRTY this child
               // property of the TextButton will also be marked as DIRTY.
-              child: Image.asset('./assets/images/dice$_leftDiceNumber.png'),
+              child: Image.asset('./lib/assets/images/dice$_leftDiceNumber.png'),
             ),
           ),
           Expanded(
@@ -89,7 +89,7 @@ class DiceState extends State<Dice> {
                 _rightDiceNumber = returnValue;
                 });
               },
-              child: Image.asset('./assets/images/dice$_rightDiceNumber.png'),
+              child: Image.asset('./lib/assets/images/dice$_rightDiceNumber.png'),
             ),
           ),
         ],

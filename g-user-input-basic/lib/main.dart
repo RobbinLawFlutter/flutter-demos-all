@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       scaffoldMessengerKey:
           scaffoldMessengerKey,
       debugShowCheckedModeBanner: false,
-      home: d7.Demo(),
+      home: d1.Demo(),
       theme: buildTheme(),
     );
   }

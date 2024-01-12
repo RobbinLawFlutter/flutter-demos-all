@@ -100,7 +100,7 @@ class Dice extends StatelessWidget {
                 int returnValue = reactToButtonPress2('left', leftDiceNumber);
                 leftDiceNumber = returnValue;
               },
-              child: Image.asset('./assets/images/dice$leftDiceNumber.png'),
+              child: Image.asset('./lib/assets/images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
@@ -110,7 +110,7 @@ class Dice extends StatelessWidget {
                 int returnValue = reactToButtonPress2('right', rightDiceNumber);
                 rightDiceNumber = returnValue;
               },
-              child: Image.asset('./assets/images/dice$rightDiceNumber.png'),
+              child: Image.asset('./lib/assets/images/dice$rightDiceNumber.png'),
             ),
           ),
         ],

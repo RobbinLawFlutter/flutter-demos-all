@@ -39,7 +39,7 @@ class Demo extends StatelessWidget {
               print("You have canceled the menu.");
             },
             onSelected: (value) {
-              print("top left value: $value");
+              print("value: $value");
             },
           ),
         title: const Text('D6 - Dropdown Menu'),

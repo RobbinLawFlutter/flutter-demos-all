@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
 
 import 'package:flutter/material.dart';
-import './views/view0.dart';
+import 'package:robbinlaw/d5/views/view0.dart';
 
 //Push and Pop Navigation Basics
 //https://flutter.dev/docs/cookbook/navigation/navigation-basics
@@ -12,6 +12,35 @@ import './views/view0.dart';
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return View0();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'D3 - Navigation',
+        ),
+      ),
+      body: MyPage(),
+    );
+  }
+}
+
+class MyPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () {
+          //Navigate to View 0
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => View0(),
+            ),
+          );
+        },
+        child: const Text(
+          'Start',
+        ),
+      ),
+    );
   }
 }

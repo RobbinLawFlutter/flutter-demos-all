@@ -1,9 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
 
 import 'package:flutter/material.dart';
-import './views/view0.dart';
-import './views/view1.dart';
-import './views/view2.dart';
+import 'package:robbinlaw/d7/views/view0.dart';
+import 'package:robbinlaw/d7/views/view1.dart';
+import 'package:robbinlaw/d7/views/view2.dart';
 
 class Demo extends StatelessWidget {
   @override

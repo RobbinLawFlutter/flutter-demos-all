@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:flutter/material.dart';
-import '../views/view1.dart';
+import 'package:robbinlaw/d7/views/view1.dart';
 
 class View2 extends StatelessWidget {
   @override
