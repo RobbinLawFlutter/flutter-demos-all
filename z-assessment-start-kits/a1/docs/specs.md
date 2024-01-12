@@ -2,13 +2,23 @@
 
 ## Overview
  
-You are to create a new project and replace main.dart with your code to complete the task, and finally submit only your completed main.dart file to Moodle.
+You are to create a new flutter project and replace the `lib` folder with the folder provided in this `start kit`.
+
+The `start-kit` code given to you should compile and run as is, even though the functionality of the running app is not complete.
+
+You will see `TODO` items in the given code, that directs where to put your code to complete the assessment. 
+
+Commit your work and upload to a remote github repo and then submit the link to Moodle.
 
 ## Required Tasks
 
-### Part 1:
+- Each `TODO:` comment will describe the expected functionality your code is to provide.
 
-- Create a new project and replace main.dart with your code. You can use the supplied lib/main.dart file to replace the new project's main.dart.
+- Place your code immediately below the `TODO:` comment.
+
+- `Do NOT change any of the code outside of a TODO: comment`.
+
+### Part 1:
 
 - Create a Material Widget with a Scaffold. In the body of the Scaffold start with a Row Widget.
 
@@ -25,13 +35,6 @@ You are to create a new project and replace main.dart with your code to complete
 - All padding will be 10px. Be careful because some elements do not have padding.
 
 - The easiest solution is to have 1 row with 3 columns as children of the row.
-
-### Part 2
-
-- Compile and run your program in a Virtual Phone. Your program must look very similar to the screen shot below.
-
-- When you are happy with your solution, submit only your completed main.dart file to Moodle.
-
 
 ## Sample Screen Shots
  

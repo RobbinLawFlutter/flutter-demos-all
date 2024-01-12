@@ -11,9 +11,9 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
-  bool _enabled = false;
-  int _timesClicked = 0;
-  String _msg1 = '';
+  bool enabled = false;
+  int timesClicked = 0;
+  String msg1 = '';
 
   @override
   Widget build(BuildContext context) {
@@ -25,20 +25,20 @@ class MyPageState extends State<MyPage> {
           children: <Widget>[
             const Text('Enable Button'),
             Switch(
-                value: _enabled,
+                value: enabled,
                 onChanged: (bool onChangedValue) {
                   print('onChangedValue is $onChangedValue');
-                  _enabled = onChangedValue;
+                  enabled = onChangedValue;
                   setState(() {
-                    if (_enabled) {
+                    if (enabled) {
                       // Here we DO reset the count
                       // unlike the previous demo.
-                      _timesClicked = 0;
-                      _msg1 = 'Enabled';
-                      print('_enabled is true');
+                      timesClicked = 0;
+                      msg1 = 'Enabled';
+                      print('enabled is true');
                     } else {
-                      _msg1 = 'Disabled';
-                      print('_enabled is false');
+                      msg1 = 'Disabled';
+                      print('enabled is false');
                     }
                   });
                 }),
@@ -51,16 +51,16 @@ class MyPageState extends State<MyPage> {
             // show or hide the button based on
             // the value of the switch.
             Visibility(
-              visible: _enabled,
+              visible: enabled,
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    _timesClicked++;
-                    _msg1 = 'Clicked $_timesClicked';
-                    print('clicked $_timesClicked');
+                    timesClicked++;
+                    msg1 = 'Clicked $timesClicked';
+                    print('clicked $timesClicked');
                   });
                 },
-                child: Text(_msg1),
+                child: Text(msg1),
               ),
             ),
           ],
