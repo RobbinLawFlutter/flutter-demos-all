@@ -43,7 +43,7 @@ class Demo extends StatelessWidget {
                 color: Colors.amber,
                 border: Border.all(color: Colors.black, width: 3),
               ),
-              child: Image.asset('./assets/images/bottle.jpg'),
+              child: Image.asset('./lib/assets/images/bottle.jpg'),
             ),
           ),
         ),

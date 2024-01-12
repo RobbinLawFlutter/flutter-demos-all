@@ -51,10 +51,10 @@ class Demo extends StatelessWidget {
             Container(
               height: 100.0,
               width: 100.0,
-              color: Colors.white,
+              color: Colors.yellow,
               child: const Center(
                 child: Text(
-                  'Container 1',
+                  'C1',
                 ),
               ),
             ),
@@ -63,7 +63,7 @@ class Demo extends StatelessWidget {
               width: 100.0,
               color: Colors.orange,
               child: const Text(
-                'Container 2',
+                'C2',
               ),
             ),
             Container(
@@ -77,18 +77,18 @@ class Demo extends StatelessWidget {
               //width: double.infinity,
               color: Colors.red,
               child: const Text(
-                'Container 3',
+                'C3',
               ),
             ),
             Container(
-              height: 20.0,
+              height: 80.0,
               //If we do not specify a width
               //it will default to the size
               //of the containers child.
               //width: 10,
               color: Colors.blue,
               child: const Text(
-                'Container 4',
+                'C4',
               ),
             ),
           ],

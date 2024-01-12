@@ -36,7 +36,7 @@ class Demo extends StatelessWidget {
             //alignment: Alignment.topRight,
             //alignment: Alignment.centerLeft,
             //alignment: Alignment.center, //default
-            child: Image.asset('./assets/images/bottle.jpg'),
+            child: Image.asset('./lib/assets/images/bottle.jpg'),
           ),
         ),
       ),

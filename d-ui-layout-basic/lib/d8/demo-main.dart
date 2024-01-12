@@ -36,7 +36,7 @@ class Demo extends StatelessWidget {
                     color: Colors.blue,
                   ),
                   child: const Image(
-                    image: AssetImage('./assets/images/bottle.jpg'),
+                    image: AssetImage('./lib/assets/images/bottle.jpg'),
                   ),
                 ),
               ),
@@ -49,7 +49,7 @@ class Demo extends StatelessWidget {
                 color: Colors.cyan,
               ),
               child: const Image(
-                image: AssetImage('./assets/images/bottle.jpg'),
+                image: AssetImage('./lib/assets/images/bottle.jpg'),
               ),
             ),
             Expanded(
@@ -63,7 +63,7 @@ class Demo extends StatelessWidget {
                     shape: BoxShape.rectangle,
                     color: Colors.yellow,
                   ),
-                  child: Image.asset('./assets/images/bottle.jpg'),
+                  child: Image.asset('./lib/assets/images/bottle.jpg'),
                 ),
               ),
             ),
@@ -76,9 +76,9 @@ class Demo extends StatelessWidget {
                   width: 100.0,
                   decoration: const BoxDecoration(
                     shape: BoxShape.rectangle,
-                    color: Colors.white,
+                    color: Colors.green,
                   ),
-                  child: Image.asset('./assets/images/bottle.jpg'),
+                  child: Image.asset('./lib/assets/images/bottle.jpg'),
                 ),
               ),
             ),

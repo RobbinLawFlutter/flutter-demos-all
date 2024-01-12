@@ -23,7 +23,7 @@ class Demo extends StatelessWidget {
       ),
       body: Column(
         children: [
-        Image.asset('./assets/images/bottle.jpg'),
+        Image.asset('./lib/assets/images/bottle.jpg'),
         Image.network('https://www.w3schools.com/w3css/img_snowtops.jpg'),
       ]),
     );

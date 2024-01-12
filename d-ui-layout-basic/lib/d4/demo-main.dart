@@ -32,7 +32,7 @@ class Demo extends StatelessWidget {
               shape: BoxShape.rectangle,
               color: Colors.amber,
             ),
-            child: Image.asset('./assets/images/bottle.jpg'),
+            child: Image.asset('./lib/assets/images/bottle.jpg'),
           ),
         ),
     );
