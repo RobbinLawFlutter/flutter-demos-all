@@ -8,7 +8,7 @@ You are to create a new project and replace main.dart with your code to complete
 
 ### Part 1:
 
-- Create a new project and replace main.dart with your code. You can use the supplied main.txt file to replace the new project's main.dart, just change the name from main.txt to main.dart.
+- Create a new project and replace main.dart with your code. You can use the supplied lib/main.dart file to replace the new project's main.dart.
 
 - Create a Material Widget with a Scaffold. In the body of the Scaffold start with a Row Widget.
 
