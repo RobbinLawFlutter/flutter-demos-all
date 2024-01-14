@@ -16,7 +16,7 @@
 
 |Week|Assessment|Day1|Day2|Day3|
 |:-:|:-:|:-:|:-:|:-:|
-|1-J08||Setup/UI-Layout|Setup/UI-Layout|Setup/UI-Layout|
+|1-J08||Setup|Setup|Setup|
 |2-J15||UI-Layout|UI-Layout|UI-Layout|
 |3-J22||UI-Layout|UI-Layout|UI-Layout|
 |4-J29|Q1-UI-Layout (10%) <p>A1-UI-Layout (10%)</p>|User-Input|User-Input|User-Input|
