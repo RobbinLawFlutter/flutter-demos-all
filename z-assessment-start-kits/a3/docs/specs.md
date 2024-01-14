@@ -20,7 +20,7 @@ Once you replace the `lib` folder and update the `pubspec.yaml` file, the projec
 
 You will see `TODO` items in the given code, that directs where to put your code to complete the assessment. 
 
-Commit your work and upload to a remote github repo and then submit the link to Moodle.
+Commit your work and upload to a remote github repo of your choice, and then submit that remote github repo's link to Moodle.
 
 ## Required Tasks
 
