@@ -2,10 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-// runApp function sets up the initial settings 
-// for the app and defines which is the root 
+// runApp function sets up the initial settings
+// for the app and defines which is the root
 // widget of the application.
-// The framework forces the root widget 
+// The framework forces the root widget
 // to cover all the screen.
 // Our root widget is the MaterialApp widget.
 // The word "widget" refers to any object that
