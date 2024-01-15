@@ -14,9 +14,9 @@ void main() {
 // A class declaration/definition with a two constructors.
 class Person {
   // Three fields
-  String? myName;
-  int? age;
-  int? birthYear;
+  String myName;
+  int age;
+  int birthYear;
 
   // Explicit greedy constructor with one positional
   // parameter that is required,
