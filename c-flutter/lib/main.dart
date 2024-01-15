@@ -23,8 +23,9 @@ void main() {
 }
 
 //This version of the code is easy to read
-//as there are , after each ) and if we right mouse
-//and choose Format Document we get this result
+//as there are , after each closing ) and if 
+//we right mouse and choose Format Document 
+//we get this result.
 /*
 void main() {
   runApp(

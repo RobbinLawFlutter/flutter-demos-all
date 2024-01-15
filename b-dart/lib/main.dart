@@ -4,7 +4,8 @@
 void main() {
   var person1 = Person('Robbin');
   person1.printFields();
-  person1.changeFields(age: 80, birthYear: 1960);
+  // Notice that the order of named parameters does NOT matter.
+  person1.changeFields(birthYear: 1960, age: 80);
   person1.printFields();
   var person2 = Person.printInfo('Jim', age: 20, birthYear: 1990);
   person2.printFields();
