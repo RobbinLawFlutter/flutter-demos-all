@@ -26,6 +26,7 @@ class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.amber,
       appBar: AppBar(
         title: const Text(
           'D1 - StatelessWidget',
