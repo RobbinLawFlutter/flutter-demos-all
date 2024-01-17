@@ -25,6 +25,7 @@ class Demo extends StatelessWidget {
         children: [
         Image.asset('./lib/assets/images/bottle.jpg'),
         Image.network('https://www.w3schools.com/w3css/img_snowtops.jpg'),
+        const Text('hi there'),
       ]),
     );
   }

@@ -32,19 +32,19 @@ class Demo extends StatelessWidget {
         // the scaffold.
         // You cannot provide both a color and decoration
         // at the same time.
+        //color: Colors.green,
 
-        //color: Colors.white,
         //padding: const EdgeInsets.fromLTRB(50, 40, 10, 20),
         //padding: const EdgeInsets.all(100.0),
+
         //margin: const EdgeInsets.fromLTRB(50.0, 40.0, 10.0, 20.0),
         //margin: const EdgeInsets.all(100.0),
-        //margin: EdgeInsets.symmetric(vertical: 50.0, horizontal: 10.0),
+        //margin: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 10.0),
 
         // Align the child within the container, default is center.
-
         //alignment: Alignment.bottomCenter,
         //alignment: Alignment.centerRight,
-        alignment: Alignment.topLeft,
+        //alignment: Alignment.topLeft,
 
         // You can decorate the container to change its shape and
         // give it a border and color.
