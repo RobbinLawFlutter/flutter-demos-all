@@ -21,19 +21,22 @@ class Demo extends StatelessWidget {
 
           //the angle property needs a radian angle between
           //0 and pi (3.14).
+          // 45 deg
           angle: pi / 4,
+          // 90 deg
           //angle: pi / 2,
-          //angle: 3,
+          // 180 deg
+          //angle: pi,
 
           //the origin property moves the center of the Transforms
           //child widget to new coordinates from the center of
           //its parent, in this case the body of the scaffold.
           //the first number moves from center up(+) or down(-)
           //and the second number moves from center right(+) or left(-).
-          //origin: Offset(125, 125),
-          //origin: Offset(-125, 125),
-          //origin: Offset(125, -125),
-          //origin: Offset(-125, -125),
+          //origin: const Offset(125, 125),
+          //origin: const Offset(-125, 125),
+          //origin: const Offset(125, -125),
+          //origin: const Offset(-125, -125),
           child: Center(
             child: Container(
               height: 250.0,

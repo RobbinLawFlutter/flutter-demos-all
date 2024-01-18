@@ -24,6 +24,7 @@ class Demo extends StatelessWidget {
         //alignment: Alignment.centerLeft,
         //alignment: Alignment.center, //default
         child: Container(
+          //alignment: Alignment.topRight,
           height: 400.0,
           width: 340.0,
           decoration: const BoxDecoration(
