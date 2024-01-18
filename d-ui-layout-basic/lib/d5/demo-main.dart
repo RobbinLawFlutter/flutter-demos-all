@@ -18,12 +18,25 @@ class Demo extends StatelessWidget {
         ),
       ),
       body: Align(
+        // The Align widget affects the
+        // alignment of its child the container
+        // relative to the Align parent,
+        // the body of the Scaffold.
         //alignment: Alignment.bottomCenter,
         //alignment: Alignment.bottomLeft,
         //alignment: Alignment.topRight,
         //alignment: Alignment.centerLeft,
         //alignment: Alignment.center, //default
         child: Container(
+          // We would expect this alignment to
+          // move the image to the top right of
+          // the container, but it does NOT.
+          // If the container child is an Align
+          // widget, only its alignment parm will
+          // effect its child which is the image.
+          // Only if the container child is the
+          // image, will this alignment effect the
+          // images alignment within the container.
           //alignment: Alignment.topRight,
           height: 400.0,
           width: 340.0,

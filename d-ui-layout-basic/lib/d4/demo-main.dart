@@ -20,6 +20,9 @@ class Demo extends StatelessWidget {
         ),
       ),
       body: Padding(
+          // From the perspective of the Padding
+          // widgets child, in this case a Container,
+          // the padding parm really acts as a margin.
           padding: const EdgeInsets.fromLTRB(10, 20, 30, 40),
           //padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           //padding: const EdgeInsets.all(20.0),
