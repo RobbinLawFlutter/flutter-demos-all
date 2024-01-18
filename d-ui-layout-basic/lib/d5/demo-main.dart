@@ -31,10 +31,10 @@ class Demo extends StatelessWidget {
           // We would expect this alignment to
           // move the image to the top right of
           // the container, but it does NOT.
-          // If the container child is an Align
+          // If the containers child is an Align
           // widget, only its alignment parm will
           // effect its child which is the image.
-          // Only if the container child is the
+          // Only if the containers child is the
           // image, will this alignment effect the
           // images alignment within the container.
           //alignment: Alignment.topRight,
