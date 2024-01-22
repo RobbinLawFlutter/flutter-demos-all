@@ -23,24 +23,24 @@ class Demo extends StatelessWidget {
         ),
       ),
       body: Row(
+          // start is the default of mainAxisAlignment
+          //mainAxisAlignment: MainAxisAlignment.start,
+          //mainAxisAlignment: MainAxisAlignment.end,
+          //mainAxisAlignment: MainAxisAlignment.center,
+
           //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-          //spaceAround spaces evenly but half at the fist and last
-          //child
+          // spaceAround spaces evenly but half at the fist 
+          // and last child
           //mainAxisAlignment: MainAxisAlignment.spaceAround,
 
-          //start is the default
-          //mainAxisAlignment: MainAxisAlignment.start,
-
-          //mainAxisAlignment: MainAxisAlignment.center,
-          //mainAxisAlignment: MainAxisAlignment.end,
-
-          //center is the default
+          //center is the default crossAxisAlignment
           //crossAxisAlignment: CrossAxisAlignment.center,
+
           //crossAxisAlignment: CrossAxisAlignment.stretch,
           //crossAxisAlignment: CrossAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          //crossAxisAlignment: CrossAxisAlignment.end,
           // If you use .baseline you must also require
           // a textBaseline, else it throws an exception.
           //crossAxisAlignment: CrossAxisAlignment.baseline,

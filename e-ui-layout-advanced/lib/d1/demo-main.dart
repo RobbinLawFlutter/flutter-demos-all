@@ -48,6 +48,7 @@ class Demo extends StatelessWidget {
             // to position the widgets within the Stack.
             Positioned(
               top: 100,
+              //bottom: 100,
               //left: 10,
               right: 50,
               child: Container(
@@ -91,7 +92,7 @@ class Demo extends StatelessWidget {
             ),
             Positioned(
               bottom: 180,
-              right: 110,
+              right: 130,
               child: Container(
                 decoration: const BoxDecoration(
                     //color: Colors.black45,

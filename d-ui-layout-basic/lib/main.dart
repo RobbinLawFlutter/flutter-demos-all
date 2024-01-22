@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: d7.Demo(),
+      home: d8.Demo(),
       theme: buildTheme(),
     );
   }
