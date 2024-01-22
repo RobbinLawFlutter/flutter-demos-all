@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors
+// ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:flutter/material.dart';
 
@@ -40,7 +40,7 @@ class Demo extends StatelessWidget {
           //crossAxisAlignment: CrossAxisAlignment.center,
           //crossAxisAlignment: CrossAxisAlignment.stretch,
           //crossAxisAlignment: CrossAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
           // If you use .baseline you must also require
           // a textBaseline, else it throws an exception.
           //crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -60,7 +60,7 @@ class Demo extends StatelessWidget {
             ),
             Container(
               height: 150.0,
-              width: 100.0,
+              width: 150.0,
               color: Colors.orange,
               child: const Text(
                 'C2',
@@ -85,7 +85,7 @@ class Demo extends StatelessWidget {
               //If we do not specify a width
               //it will default to the size
               //of the containers child.
-              //width: 10,
+              //width: 50,
               color: Colors.blue,
               child: const Text(
                 'C4',
