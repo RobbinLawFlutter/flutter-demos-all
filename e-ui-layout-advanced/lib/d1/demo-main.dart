@@ -28,26 +28,27 @@ class Demo extends StatelessWidget {
         ),
       ),
       body: Stack(
-          //Children of the stack are stacked on top of
-          //one another starting with the first child on
-          //the bottom.
-          //Non Positioned and Non Aligned children
-          //of the stack will be aligned with alignment
-          //property of stack.
-          //topLeft is the default.
+          // Children of the stack are stacked 
+          // on top of one another starting 
+          // with the first child on the bottom.
+          // Non Positioned and Non Aligned children
+          // of the stack will be aligned with alignment
+          // property of stack.
+          // topLeft is the default.
           //alignment: Alignment.topLeft,
           //alignment: Alignment.bottomCenter,
           //alignment: Alignment.topRight,
           children: <Widget>[
-            //POSITIONED WIDGET WITHIN STACK
-            //A POSITIONED WIDGET MUST BE A DESCENDENT OF A STACK.
-            //IT WILL NOT WORK WITH ROW, COLUMN.
-            //It works with a combination of parameters
-            //vertical (top, bottom, height) and
-            //horizontal (left, right, width)
-            //to position the widgets within the Stack.
+            // A POSITIONED WIDGET MUST BE A DESCENDENT
+            // OF A STACK.
+            // IT WILL NOT WORK WITH ROW, COLUMN.
+            // It works with a combination of parameters
+            // vertical (top, bottom, height) and
+            // horizontal (left, right, width)
+            // to position the widgets within the Stack.
             Positioned(
               top: 100,
+              //left: 10,
               right: 50,
               child: Container(
                 height: 300,
@@ -58,9 +59,9 @@ class Demo extends StatelessWidget {
                 ),
               ),
             ),
-            //ALIGNED WIDGET WITHIN STACK
             Align(
-              //alignment: Alignment.center, //default
+              // default is center
+              //alignment: Alignment.center,
               //alignment: Alignment.bottomCenter,
               //alignment: Alignment.bottomLeft,
               alignment: Alignment.topRight,
@@ -84,12 +85,12 @@ class Demo extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: 90,
+              bottom: 50,
               right: 100,
               child: Image.asset('./lib/assets/images/bottle.jpg'),
             ),
             Positioned(
-              bottom: 120,
+              bottom: 180,
               right: 110,
               child: Container(
                 decoration: const BoxDecoration(
@@ -98,7 +99,7 @@ class Demo extends StatelessWidget {
                 child: const Text(
                   'message in a bottle',
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 25,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
