@@ -38,7 +38,7 @@ class Demo extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Chilanka-Regular',
                   fontSize: 40,
-                  color: Colors.white,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 2.5,
                 ),
@@ -56,8 +56,8 @@ class Demo extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Icon(
-                        Icons.access_alarm_sharp,
-                        //Icons.add_shopping_cart,
+                        //Icons.access_alarm_sharp,
+                        Icons.download,
                         size: 50,
                         color: Colors.blue.shade500,
                       ),
@@ -65,12 +65,15 @@ class Demo extends StatelessWidget {
                         width: 20,
                         height: 20,
                       ),
-                      Text(
+                      const Text(
                         'time to wake up',
                         style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.blue.shade300,
-                        ),
+                  fontFamily: 'Chilanka-Regular',
+                  fontSize: 25,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.5,
+                ),
                       ),
                     ],
                   ),

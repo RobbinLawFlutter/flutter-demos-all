@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 //Using Avatar Widgets & Manipulating Text Properties
 //Also loading custom fonts
-//google fonts.google.com download the font you want and unzip
+// google fonts.google.com download the font you want and unzip
 //in my case Chilanka-Regular
 //create a directory called "fonts" and drag and drop
 //the ttf file to the new directory
