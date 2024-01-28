@@ -57,7 +57,7 @@ class Dice extends StatelessWidget {
     print('The build method is being RUN');
     // We can put local variables inside the build method but
     // their scope is only inside the method.
-    // If we change these numbers and hot restart the 
+    // If we change these numbers and hot restart the
     // images on the phone will update.
     // We can hot restart by pressing ctrl+s
     // It will NOT work if we hot reload.
@@ -69,7 +69,7 @@ class Dice extends StatelessWidget {
           Expanded(
             flex: 1,
             child: TextButton(
-              // This will not work as expected because 
+              // This will not work as expected because
               // flutter will call and run
               // the named method as it is building the UI.
               // The result is that the method will only happen
@@ -80,7 +80,7 @@ class Dice extends StatelessWidget {
 
               // This will work as expected because it is a pointer
               // to the named method.
-              // This method must return type dynamic (nothing) 
+              // This method must return type dynamic (nothing)
               // and cannot take args.
               //onPressed: reactToButtonPress1,
 
@@ -100,7 +100,10 @@ class Dice extends StatelessWidget {
                 int returnValue = reactToButtonPress2('left', leftDiceNumber);
                 leftDiceNumber = returnValue;
               },
-              child: Image.asset('./lib/assets/images/dice$leftDiceNumber.png'),
+              child: Image.asset(
+                './lib/assets/images/dice$leftDiceNumber.png',
+                color: Colors.blueGrey,
+              ),
             ),
           ),
           Expanded(
@@ -110,7 +113,10 @@ class Dice extends StatelessWidget {
                 int returnValue = reactToButtonPress2('right', rightDiceNumber);
                 rightDiceNumber = returnValue;
               },
-              child: Image.asset('./lib/assets/images/dice$rightDiceNumber.png'),
+              child: Image.asset(
+                './lib/assets/images/dice$rightDiceNumber.png',
+                color: Colors.blueGrey,
+              ),
             ),
           ),
         ],
@@ -125,7 +131,8 @@ class Dice extends StatelessWidget {
   int reactToButtonPress2(String whichDie, int dieNum) {
     //Random number between 0 and 5 then add 1
     int newDieNum = Random().nextInt(6) + 1;
-    print('$whichDie button pressed. OLD ${whichDie}DiceNumber = $dieNum NEW ${whichDie}DiceNumber = $newDieNum');
+    print(
+        '$whichDie button pressed. OLD ${whichDie}DiceNumber = $dieNum NEW ${whichDie}DiceNumber = $newDieNum');
     return newDieNum;
   }
 }

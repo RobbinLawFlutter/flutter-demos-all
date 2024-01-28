@@ -36,7 +36,7 @@ class DiceState extends State<Dice> {
   //inside of the build method and then their scope would only be
   //inside of the build method.
   //These class instance fields are available only to any method
-  //inside this class if they are private as here. 
+  //inside this class if they are private as here.
   //The _ means that they are private, no keyword 'private' like in Csharp.
   //They would be accessible outside of this class if they were public with
   //no _ as the first letter of name.
@@ -52,11 +52,10 @@ class DiceState extends State<Dice> {
             flex: 1,
             child: TextButton(
               onPressed: () {
-                
                 int returnValue = reactToButtonPress('left', _leftDiceNumber);
                 //When a field changes as here it is marked DIRTY.
                 _leftDiceNumber = returnValue;
-                
+
                 //We can only use the 'setState' method if the parent class
                 //is inherited from a STATE<> widget.
                 //setState takes as a parm an anonymous function.
@@ -64,13 +63,16 @@ class DiceState extends State<Dice> {
                   //At the end of the setState anonymous function
                   //setState automatically triggers the nearest build method
                   //to rerun which in turn updates or rerenders the screen
-                  //to reflect changes from any field/property 
+                  //to reflect changes from any field/property
                   //labeled DIRTY.
                 });
               },
               // If _LeftDiceNumber becomes DIRTY this child
               // property of the TextButton will also be marked as DIRTY.
-              child: Image.asset('./lib/assets/images/dice$_leftDiceNumber.png'),
+              child: Image.asset(
+                './lib/assets/images/dice$_leftDiceNumber.png',
+                color: Colors.blueGrey,
+              ),
             ),
           ),
           Expanded(
@@ -83,13 +85,17 @@ class DiceState extends State<Dice> {
                   //At the end of the setState anonymous function
                   //setState automatically triggers the nearest build method
                   //to rerun which in turn updates or rerenders the screen
-                  //to reflect changes from any field/property 
+                  //to reflect changes from any field/property
                   //labeled DIRTY.
-                  int returnValue = reactToButtonPress('right', _rightDiceNumber);
-                _rightDiceNumber = returnValue;
+                  int returnValue =
+                      reactToButtonPress('right', _rightDiceNumber);
+                  _rightDiceNumber = returnValue;
                 });
               },
-              child: Image.asset('./lib/assets/images/dice$_rightDiceNumber.png'),
+              child: Image.asset(
+                './lib/assets/images/dice$_rightDiceNumber.png',
+                color: Colors.blueGrey,
+              ),
             ),
           ),
         ],
@@ -100,8 +106,8 @@ class DiceState extends State<Dice> {
   int reactToButtonPress(String whichDie, int dieNum) {
     //Random number between 0 and 5 then add 1
     int newDieNum = Random().nextInt(6) + 1;
-    print('$whichDie pressed. OLD ${whichDie}DieNum=$dieNum NEW ${whichDie}DieNum=$newDieNum');
+    print(
+        '$whichDie pressed. OLD ${whichDie}DieNum=$dieNum NEW ${whichDie}DieNum=$newDieNum');
     return newDieNum;
   }
-  
 }
