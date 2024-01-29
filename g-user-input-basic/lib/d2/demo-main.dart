@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-//Flutter 101: Stateful Widgets
-//https://www.youtube.com/watch?v=AqCMFXEmf3w
+// Flutter 101: Stateful Widgets
+// https://www.youtube.com/watch?v=AqCMFXEmf3w
 
 class Demo extends StatelessWidget {
   @override
@@ -18,10 +18,10 @@ class Demo extends StatelessWidget {
   }
 }
 
-//The inheritance of this StatefulWidget is immutable.
-//Unlike a stateless widget it does allow for the call to the
-//createState method which instantiates a class that inherits from the
-//State<> widget which is the mutable part.
+// The inheritance of this StatefulWidget is immutable.
+// Unlike a stateless widget it does allow for the call to the
+// createState method which instantiates a class that inherits from the
+// State<> widget which is the mutable part.
 class Dice extends StatefulWidget {
   // Because this part is immutable we must use final or const
   final int myInt = 2;
@@ -30,16 +30,17 @@ class Dice extends StatefulWidget {
 }
 
 class DiceState extends State<Dice> {
-  //Here we can declare mutable class instance fields that can
-  //be changed. With a stateless widget we could
-  //only declare changeable fields (not marked final or const)
-  //inside of the build method and then their scope would only be
-  //inside of the build method.
-  //These class instance fields are available only to any method
-  //inside this class if they are private as here.
-  //The _ means that they are private, no keyword 'private' like in Csharp.
-  //They would be accessible outside of this class if they were public with
-  //no _ as the first letter of name.
+  // Here we can declare mutable class instance fields that can
+  // be changed. With a stateless widget we could
+  // only declare changeable fields (not marked final or const)
+  // inside of the build method and then their scope would only be
+  // inside of the build method.
+  // These class instance fields are available only to any method
+  // inside this class if they are private as here.
+  // The _ means that they are private, no keyword 'private'
+  // like in Csharp.
+  // They would be accessible outside of this class if they 
+  // were public with no _ as the first letter of name.
   int _leftDiceNumber = 2;
   int _rightDiceNumber = 4;
   @override
@@ -53,18 +54,19 @@ class DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 int returnValue = reactToButtonPress('left', _leftDiceNumber);
-                //When a field changes as here it is marked DIRTY.
+                // When a field changes as here it is marked DIRTY.
                 _leftDiceNumber = returnValue;
 
-                //We can only use the 'setState' method if the parent class
-                //is inherited from a STATE<> widget.
-                //setState takes as a parm an anonymous function.
+                // We can only use the 'setState' method if the 
+                // parent class is inherited from a STATE<> widget.
+                // setState takes as a parm an anonymous function.
                 setState(() {
-                  //At the end of the setState anonymous function
-                  //setState automatically triggers the nearest build method
-                  //to rerun which in turn updates or rerenders the screen
-                  //to reflect changes from any field/property
-                  //labeled DIRTY.
+                  // At the end of the setState anonymous function
+                  // setState automatically triggers the 
+                  // nearest build method to rerun which in 
+                  // turn updates or rerenders the screen
+                  // to reflect changes from any field/property
+                  // labeled DIRTY.
                 });
               },
               // If _LeftDiceNumber becomes DIRTY this child
@@ -80,13 +82,14 @@ class DiceState extends State<Dice> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  //You can run statements inside of the 'setState
-                  //anonymous function.
-                  //At the end of the setState anonymous function
-                  //setState automatically triggers the nearest build method
-                  //to rerun which in turn updates or rerenders the screen
-                  //to reflect changes from any field/property
-                  //labeled DIRTY.
+                  // You can run statements inside of the 'setState
+                  // anonymous function.
+                  // At the end of the setState anonymous function
+                  // setState automatically triggers the nearest 
+                  // build method to rerun which in turn 
+                  // updates or rerenders the screen
+                  // to reflect changes from any field/property
+                  // labeled DIRTY.
                   int returnValue =
                       reactToButtonPress('right', _rightDiceNumber);
                   _rightDiceNumber = returnValue;

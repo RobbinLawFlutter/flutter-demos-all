@@ -3,22 +3,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-// Dart is a Statically Typed Language but can also be Dynamically Typed.
-// These all produce static types with initialization
-//int myInt = 123;
-//string myString = 'Hello'; notice single quotes in dart
-//double myDouble = 12.3;
-//bool myBool = true;
-// This produces a static int type even with no init.
-//int myInt2;
-// A variable can be made dynamically typed with the keyword dynamic
-//dynamic myDynamic;
-//myDynamic = 123;
-//myDynamic = 'Hello';
-// This produces a dynamic type as no initialization has occurred.
-// This would not be possible in C#.
-//var myDynamic2;
-
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -34,7 +18,7 @@ class Demo extends StatelessWidget {
 }
 
 // With a StatelessWidget we do not have a mechanism to
-// update the UI after the one initial build, unless we hot
+// update the UI after the first and only initial build, unless we hot
 // restart the program with new variable values.
 class Dice extends StatelessWidget {
   // We cannot put class instance fields here (unless we mark them final)
@@ -61,8 +45,8 @@ class Dice extends StatelessWidget {
     // images on the phone will update.
     // We can hot restart by pressing ctrl+s
     // It will NOT work if we hot reload.
-    int leftDiceNumber = 2;
-    var rightDiceNumber = 4;
+    int leftDiceNumber = 4;
+    var rightDiceNumber = 2;
     return Center(
       child: Row(
         children: <Widget>[
@@ -76,7 +60,7 @@ class Dice extends StatelessWidget {
               // once when the build is called at program restart.
               // Pressing the TextButton will NOT cause the method
               // to run.
-              //onPressed: reactToButtonPress1(),
+              onPressed: reactToButtonPress1(),
 
               // This will work as expected because it is a pointer
               // to the named method.
@@ -96,10 +80,10 @@ class Dice extends StatelessWidget {
               // to the onPressed property.
               // The code inside the anonymous function is run
               // only when the onPressed event is triggered.
-              onPressed: () {
-                int returnValue = reactToButtonPress2('left', leftDiceNumber);
-                leftDiceNumber = returnValue;
-              },
+              // onPressed: () {
+              //   int returnValue = reactToButtonPress2('left', leftDiceNumber);
+              //   leftDiceNumber = returnValue;
+              // },
               child: Image.asset(
                 './lib/assets/images/dice$leftDiceNumber.png',
                 color: Colors.blueGrey,
@@ -129,7 +113,8 @@ class Dice extends StatelessWidget {
   }
 
   int reactToButtonPress2(String whichDie, int dieNum) {
-    //Random number between 0 and 5 then add 1
+    // Random number between 0 and 5 then add 1
+    // to make newDieNum between 1 and 6 inclusive
     int newDieNum = Random().nextInt(6) + 1;
     print(
         '$whichDie button pressed. OLD ${whichDie}DiceNumber = $dieNum NEW ${whichDie}DiceNumber = $newDieNum');
