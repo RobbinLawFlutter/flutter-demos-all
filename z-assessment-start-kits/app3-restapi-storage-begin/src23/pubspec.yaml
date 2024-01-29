@@ -9,9 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  google_fonts:
-  font_awesome_flutter:
+  
+  http:
   sqflite:
   path:
 
