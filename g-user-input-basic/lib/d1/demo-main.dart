@@ -60,7 +60,7 @@ class Dice extends StatelessWidget {
               // once when the build is called at program restart.
               // Pressing the TextButton will NOT cause the method
               // to run.
-              onPressed: reactToButtonPress1(),
+              //onPressed: reactToButtonPress1(),
 
               // This will work as expected because it is a pointer
               // to the named method.
@@ -80,10 +80,10 @@ class Dice extends StatelessWidget {
               // to the onPressed property.
               // The code inside the anonymous function is run
               // only when the onPressed event is triggered.
-              // onPressed: () {
-              //   int returnValue = reactToButtonPress2('left', leftDiceNumber);
-              //   leftDiceNumber = returnValue;
-              // },
+              onPressed: () {
+                int returnValue = reactToButtonPress2('left', leftDiceNumber);
+                leftDiceNumber = returnValue;
+              },
               child: Image.asset(
                 './lib/assets/images/dice$leftDiceNumber.png',
                 color: Colors.blueGrey,
@@ -117,7 +117,7 @@ class Dice extends StatelessWidget {
     // to make newDieNum between 1 and 6 inclusive
     int newDieNum = Random().nextInt(6) + 1;
     print(
-        '$whichDie button pressed. OLD ${whichDie}DiceNumber = $dieNum NEW ${whichDie}DiceNumber = $newDieNum');
+        '$whichDie button pressed. OLD $whichDie DiceNumber = $dieNum NEW $whichDie DiceNumber = $newDieNum');
     return newDieNum;
   }
 }

@@ -23,7 +23,7 @@ class Demo extends StatelessWidget {
 // createState method which instantiates a class that inherits from the
 // State<> widget which is the mutable part.
 class Dice extends StatefulWidget {
-  // Because this part is immutable we must use final or const
+  // Because this part is immutable we must use final or "static const"
   final int myInt = 2;
   @override
   State<Dice> createState() => DiceState();
@@ -110,7 +110,7 @@ class DiceState extends State<Dice> {
     //Random number between 0 and 5 then add 1
     int newDieNum = Random().nextInt(6) + 1;
     print(
-        '$whichDie pressed. OLD ${whichDie}DieNum=$dieNum NEW ${whichDie}DieNum=$newDieNum');
+        '$whichDie pressed. OLD $whichDie DieNum=$dieNum NEW $whichDie DieNum=$newDieNum');
     return newDieNum;
   }
 }
