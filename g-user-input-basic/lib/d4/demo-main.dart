@@ -14,7 +14,7 @@ class Demo extends StatelessWidget {
         actions: [
           ElevatedButton(
             onPressed: () {
-              MySnackBar(text: 'Hey Man').show();
+              MySnackBar(text: 'Hey this is fun').show();
             },
             child: const Icon(Icons.shopping_bag),
           ),

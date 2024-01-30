@@ -8,12 +8,14 @@ class MySnackBar {
   MySnackBar({required this.text});
 
   void show() {
-    //print(scaffoldMessengerKey.currentState);
+    print(scaffoldMessengerKey.currentState);
+    print(scaffoldMessengerKey.currentWidget);
     scaffoldMessengerKey.currentState?.showSnackBar(get());
   }
+
   SnackBar get(){
   return SnackBar(
-    duration: const Duration(seconds: 5),
+    duration: const Duration(seconds: 10),
     behavior: SnackBarBehavior.floating,
     content: Row(
       children: [
