@@ -10,10 +10,10 @@ class MySnackBar {
   void show() {
     print(scaffoldMessengerKey.currentState);
     print(scaffoldMessengerKey.currentWidget);
-    scaffoldMessengerKey.currentState?.showSnackBar(get());
+    scaffoldMessengerKey.currentState?.showSnackBar(createSnackBar());
   }
 
-  SnackBar get(){
+  SnackBar createSnackBar(){
   return SnackBar(
     duration: const Duration(seconds: 10),
     behavior: SnackBarBehavior.floating,
