@@ -27,11 +27,35 @@ class View2 extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                //Navigate to Screen 1
+                //Navigate to View 1
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => View1(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+              ),
+              child: const Text(
+                'Go To View 2',
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 48,
+                ),
+              ),
+              onPressed: () {
+                //Navigate to Screen 2
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => View2(),
                   ),
                 );
               },

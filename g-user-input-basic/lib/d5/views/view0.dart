@@ -61,6 +61,25 @@ class View0 extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+              ),
+              child: const Text(
+                'Go Back',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 48,
+                ),
+              ),
+              onPressed: () {
+                //Navigate back by popping
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
       ),

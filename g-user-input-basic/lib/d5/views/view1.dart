@@ -22,6 +22,30 @@ class View1 extends StatelessWidget {
                 backgroundColor: Colors.grey,
               ),
               child: const Text(
+                'Go To View 1',
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 48,
+                ),
+              ),
+              onPressed: () {
+                //Navigate to View 1
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => View1(),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+              ),
+              child: const Text(
                 'Go To View 2',
                 style: TextStyle(
                   color: Colors.blue,
