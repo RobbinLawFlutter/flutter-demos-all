@@ -34,16 +34,19 @@ class MyFirstPageState extends State<MyFirstPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //TODO: Build the label and switch here
-              //as children of the row.
-              
+              //TODO: Replace this Text Widget
+              // and build the label and switch here
+              // as children of the row.
+              Text('testing 1 2 3 '),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              //TODO: Build the two buttons here as children of the row.
-              // For each button use a "Visibility Widget" and its child 
+              //TODO: Build the two buttons here 
+              // as children of the row.
+              // For each button use a 
+              // "Visibility Widget" and its child 
               // will be an "ElevatedButton"
               
             ],
@@ -57,12 +60,14 @@ class MyFirstPageState extends State<MyFirstPage> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  //TODO: Build the text form field here as the first
+                  //TODO: Build the text form field
+                  // here as the first
                   // child of the column.
-                  // Include as the second child of the column
+                  // Include as the second child
+                  // of the column
                   // a submit button that will show a
-                  // snackbar with the "firstName" if validation
-                  // is satisfied.
+                  // snackbar with the "firstName"
+                  // if validation is satisfied.
                   
                 ],
               ),

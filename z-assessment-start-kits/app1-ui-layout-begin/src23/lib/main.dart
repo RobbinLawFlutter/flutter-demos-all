@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, todo
+// ignore_for_file: use_key_in_widget_constructors, todo, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -25,11 +25,13 @@ class MyApp extends StatelessWidget {
           title: const Text("App1 - UI Layout"),
           backgroundColor: Colors.blue,
         ),
-        body: const Row(
+        body: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            //TODO: Put your code here to complete this app.
+            //TODO: Replace this Text Widget 
+            // with your code to complete this app.
+            Text('testing 1 2 3'),
           ],
         ),
       ),

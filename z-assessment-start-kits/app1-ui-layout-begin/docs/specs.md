@@ -1,8 +1,6 @@
 # Assignment 1: User Interface Layout
 
 ## Overview
- 
-You are to create a new flutter project and replace the `lib` folder with the folder provided in this `start kit`.
 
 The `start-kit` code given to you should compile and run as is, even though the functionality of the running app is not complete.
 
