@@ -25,17 +25,17 @@ class MyPageState extends State<MyPage> {
                 value: enabled,
                 onChanged: (bool onChangedValue) {
                   print('onChangedValue is $onChangedValue');
-                  // _enabled is now DIRTY after next statement.
+                  // enabled is now DIRTY after next statement.
                   enabled = onChangedValue;
                   setState(() {
                     if (enabled) {
-                      //Here we DO NOT reset the count.
-                      // _msg1 is now also DIRTY.
+                      // Here we DO NOT reset the count.
+                      // msg1 is now also DIRTY.
                       msg1 = 'Enabled';
                       print('enabled is true');
                     } else {
                       msg1 = 'Disabled';
-                      //_msg1 = '';
+                      // msg1 is now DIRTY.
                       print('enabled is false');
                     }
                   });
