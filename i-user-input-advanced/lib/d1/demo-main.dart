@@ -38,7 +38,7 @@ class MyPageState extends State<MyPage> {
             leading: Switch(
               value: values[i],
               // Making the onChanged property null disables the switch.
-              onChanged: i == count - 1
+              onChanged: i == count - 2
                   ? null
                   : (bool value) {
                       values[i] = value;

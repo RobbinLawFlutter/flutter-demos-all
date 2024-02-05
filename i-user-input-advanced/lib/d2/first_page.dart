@@ -8,10 +8,9 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
-  bool _enabled = false;
-  int _timesClicked = 0;
-  String _msg1 = 'Disabled';
-  //String _msg1 = '';
+  bool enabled = false;
+  int timesClicked = 0;
+  String msg1 = 'Disabled';
 
   @override
   Widget build(BuildContext context) {
@@ -23,21 +22,21 @@ class MyPageState extends State<MyPage> {
           children: <Widget>[
             const Text('Enable Button'),
             Switch(
-                value: _enabled,
+                value: enabled,
                 onChanged: (bool onChangedValue) {
                   print('onChangedValue is $onChangedValue');
                   // _enabled is now DIRTY after next statement.
-                  _enabled = onChangedValue;
+                  enabled = onChangedValue;
                   setState(() {
-                    if (_enabled) {
+                    if (enabled) {
                       //Here we DO NOT reset the count.
                       // _msg1 is now also DIRTY.
-                      _msg1 = 'Enabled';
-                      print('_enabled is true');
+                      msg1 = 'Enabled';
+                      print('enabled is true');
                     } else {
-                      _msg1 = 'Disabled';
+                      msg1 = 'Disabled';
                       //_msg1 = '';
-                      print('_enabled is false');
+                      print('enabled is false');
                     }
                   });
                 }),
@@ -50,18 +49,19 @@ class MyPageState extends State<MyPage> {
             //will give a greyed out disabled button, but
             //it will NOT disappear.
             //We can only achieve the disappearing nature
-            //with a MaterialButton, as second-page shows.
+            //with a Visibility Widget, as 
+            //second-page shows.
             ElevatedButton(
-              onPressed: _enabled
+              onPressed: enabled
                   ? () {
                       setState(() {
-                        _timesClicked++;
-                        _msg1 = 'Clicked $_timesClicked';
-                        print('clicked $_timesClicked');
+                        timesClicked++;
+                        msg1 = 'Clicked $timesClicked';
+                        print('clicked $timesClicked');
                       });
                     }
                   : null,
-              child: Text(_msg1),
+              child: Text(msg1),
             ),
           ],
         ),
