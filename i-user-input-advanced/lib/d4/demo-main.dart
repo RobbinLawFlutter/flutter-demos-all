@@ -35,7 +35,7 @@ class MyPageState extends State<MyPage> {
   final TextEditingController textEditingController = TextEditingController();
   final TextEditingController textEditingController1 = TextEditingController();
 
-  late String? _email, _password;
+  late String? email, password;
   List<String> listItems = [];
 
   @override
@@ -55,16 +55,12 @@ class MyPageState extends State<MyPage> {
               print(value);
             },
             onFieldSubmitted: (text) {
-              print('Submitted Email Text = $text');
-              // This if statement will only be true when
-              // both TextFormFields are valid.
-              if (formKey.currentState!.validate()) {
-                print('the email input is now valid');
-              }
+              print('onFieldSubmitted Email Text = $text');
             },
             validator: (input) {
               // The ! tells the compiler that input could
               // be null, and not to throw an error.
+              print('validator/email running');
               return input!.contains('@') ? null : 'must include @ please';
             },
             onSaved: (input) {
@@ -72,16 +68,16 @@ class MyPageState extends State<MyPage> {
               // when the elevated button is pressed and both
               // TextFormFields are valid.
               print('onSaved email = $input');
-              _email = input;
+              email = input;
             },
-            maxLength: 30,
+            maxLength: 15,
             decoration: const InputDecoration(
               //The border property is what makes a outlined
               //textformfield instead of a filled one.
               //border: OutlineInputBorder(),
               icon: Icon(Icons.email),
               labelText: 'email',
-              helperText: 'must include @',
+              helperText: 'include @',
               suffixIcon: Icon(
                 Icons.check_circle,
               ),
@@ -96,25 +92,22 @@ class MyPageState extends State<MyPage> {
               print(value);
             },
             onFieldSubmitted: (text) {
-              print('Submitted Password Text = $text');
-              if (formKey.currentState!.validate()) {
-                print('the password input is now valid');
-              }
-              //setState(() {});
+              print('onFieldSubmitted Password Text = $text');
             },
             validator: (input) {
-              return input!.length < 8 ? 'min 8 chars please' : null;
+              print('validator/password running');
+              return input!.length < 4 ? 'min 4 chars please' : null;
             },
             onSaved: (input) {
               print('onSaved password = $input');
-              _password = input;
+              password = input;
             },
             obscureText: true,
-            maxLength: 20,
+            maxLength: 10,
             decoration: const InputDecoration(
               icon: Icon(Icons.emoji_emotions),
               labelText: 'password',
-              helperText: 'min 8, max 20',
+              helperText: 'min 4, max 10',
               suffixIcon: Icon(
                 Icons.check_circle,
               ),
@@ -129,7 +122,7 @@ class MyPageState extends State<MyPage> {
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
-                      listItems.add('email = $_email , password = $_password');
+                      listItems.add('email:$email , password:$password');
                       textEditingController.clear();
                       textEditingController1.clear();
                       setState(() {});
