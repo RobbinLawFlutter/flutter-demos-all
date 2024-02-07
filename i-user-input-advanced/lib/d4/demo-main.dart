@@ -72,8 +72,6 @@ class MyPageState extends State<MyPage> {
             },
             maxLength: 15,
             decoration: const InputDecoration(
-              //The border property is what makes a outlined
-              //textformfield instead of a filled one.
               //border: OutlineInputBorder(),
               icon: Icon(Icons.email),
               labelText: 'email',
@@ -123,8 +121,8 @@ class MyPageState extends State<MyPage> {
                     if (formKey.currentState!.validate()) {
                       formKey.currentState!.save();
                       listItems.add('email:$email , password:$password');
-                      textEditingController.clear();
-                      textEditingController1.clear();
+                      //textEditingController.clear();
+                      //textEditingController1.clear();
                       setState(() {});
                     }
                   },
