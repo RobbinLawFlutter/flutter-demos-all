@@ -36,7 +36,7 @@ Commit your work and upload to a remote github repo and then submit the link to 
 
 ### Part 2:
 
-- Use a `textformfield` widget with validation to allow the user to enter a name between 1 and 10 characters. 
+- Use a `textformfield` widget with validation to allow the user to enter a name between 1 and 10 characters. Wrap the `textformfield` in a `form` widget that has a Global Key to keep track of the state of the `form`.
 - When the name is valid and the `Submit` button is pressed a `snackbar` will show in the bottom of the scaffold body for five seconds. 
 - The `snackbar` will display the name typed into the `textformfield`.
 - If the user clicks on the button in the snackbar a message will be printed to the console.
