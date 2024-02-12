@@ -26,7 +26,7 @@ final ThemeData base = ThemeData.light();
 
 ThemeData buildTheme() {
   return base.copyWith(
-    useMaterial3: true,
+    //useMaterial3: true,
     colorScheme: colorScheme,
     textTheme: buildTextTheme(base.textTheme),
     iconTheme: buildIconTheme(base.iconTheme),

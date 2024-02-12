@@ -35,7 +35,7 @@ class Demo extends StatelessWidget {
       ),
       child: Column(
         children: [
-          //Text('hi there'),
+          const Text('hi there'),
           buildImageRow(1),
           buildImageRow(3),
         ],
