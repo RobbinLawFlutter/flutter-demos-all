@@ -30,8 +30,6 @@ Commit your work and upload to a remote github repo and then submit the link to 
  
 - If at any time the right button is clicked the left will reset the count and display `Click Me`.
  
-- If at anytime the switch is turned off, then the buttons are disabled.
- 
 - When the switch is turned back on the left button will display the count where it was before the switch was turned off.
 
 ### Part 2:
