@@ -19,11 +19,11 @@
 |1-J08||Setup|Setup|Setup|
 |2-J15||UI-Layout|UI-Layout|UI-Layout|
 |3-J22||UI-Layout|UI-Layout|UI-Layout|
-|4-J29|Q1-UI-Layout (10%) <p>A1-UI-Layout (10%)</p>|User-Input|User-Input|User-Input|
+|4-J29|Q1-UI-Layout (10%)<br> A1-UI-Layout (10%)|User-Input|User-Input|User-Input|
 |5-F05||User-Input|User-Input|User-Input|
-|6-F12||User-Input|User-Input|User-Input|
+|6-F12||Themes|Themes|Themes|
 |F19|||||
-|7-F26|Q2-User-Input (10%) <p>A2-User-Input (10%)</p>|Custom-Widgets|Custom-Widgets|Custom-Widgets|
+|7-F26|Q2-User-Input (10%)<br> A2-User-Input (10%)|Custom-Widgets|Custom-Widgets|Custom-Widgets|
 |8-M04||RestfulAPI/SQLite|RestfulAPI/SQLite|RestfulAPI/SQLite|
 |9-M11||RestfulAPI/SQLite|RestfulAPI/SQLite|RestfulAPI/SQLite|
 |10-M18||Firebase/Firestore|Firebase/Firestore|Firebase/Firestore|
