@@ -8,10 +8,11 @@ import 'package:robbinlaw/themes/textTheme.dart';
 
 ListTileThemeData buildListTileTheme(ListTileThemeData original) {
   return original.copyWith(
-    //tileColor: colorScheme.primary,
+    textColor: Colors.blue,
+    tileColor: colorScheme.primary,
     titleTextStyle: buildTextStyle(
       colorScheme.onPrimary,
-      size: 30,
+      size: 15,
     ),
     leadingAndTrailingTextStyle: buildTextStyle(
       colorScheme.onPrimary,

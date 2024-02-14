@@ -11,7 +11,6 @@ import 'package:robbinlaw/themes/colorScheme.dart';
 TextTheme buildTextTheme(TextTheme original) {
   return original
       .copyWith(
-        //title: buildTextStyle(colorScheme.onPrimary),
         displayLarge: buildTextStyle(colorScheme.onPrimary),
         displayMedium: buildTextStyle(colorScheme.onPrimary),
         displaySmall: buildTextStyle(colorScheme.onPrimary),
@@ -38,7 +37,8 @@ TextTheme buildTextTheme(TextTheme original) {
         bodySmall: buildTextStyle(colorScheme.onPrimary),
         //Used for text on ElevatedButton, TextButton, and OutlinedButton
         //if no others
-        labelLarge: buildTextStyle(colorScheme.onPrimary),
+        // lableLarge is used for...
+        labelLarge: buildTextStyle(Colors.blue, size: 15),
         labelMedium: buildTextStyle(colorScheme.onPrimary),
         labelSmall: buildTextStyle(colorScheme.onPrimary),
       );

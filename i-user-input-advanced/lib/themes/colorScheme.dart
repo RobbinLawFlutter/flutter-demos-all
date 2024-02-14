@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-const ColorScheme colorScheme2 = ColorScheme(
+const ColorScheme colorScheme = ColorScheme(
   primary: basilGreen100,
   onPrimary: basilGreen800,
   secondary: basilNeutral,
@@ -16,8 +16,8 @@ const ColorScheme colorScheme2 = ColorScheme(
   brightness: Brightness.light,
 );
 
-const ColorScheme colorScheme = ColorScheme(
-  primary: pink100,
+const ColorScheme colorScheme2 = ColorScheme(
+  primary: blue200,
   onPrimary: brown900,
   secondary: pink50,
   onSecondary: brown600,

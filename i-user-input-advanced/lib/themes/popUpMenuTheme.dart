@@ -7,6 +7,6 @@ import 'package:robbinlaw/themes/textTheme.dart';
 PopupMenuThemeData buildPopUpMenuTheme(PopupMenuThemeData original) {
   return original.copyWith(
     color: colorScheme.primary,
-    textStyle: buildTextStyle(colorScheme.onPrimary, size: 25),
+    textStyle: buildTextStyle(colorScheme.onPrimary, size: 50),
   );
 }
