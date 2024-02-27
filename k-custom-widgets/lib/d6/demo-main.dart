@@ -63,7 +63,7 @@ class MyPageState extends State<MyPage> {
                         ? kActiveCardColor
                         : kInactiveCardColor,
 
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.burger,
                       label: 'OMNIVORE',
                     ),
@@ -85,7 +85,7 @@ class MyPageState extends State<MyPage> {
                         ? kActiveCardColor
                         : kInactiveCardColor,
 
-                    reusableCardChild: MyIcon(
+                    reusableCardChild: const MyIcon(
                       icon: FontAwesomeIcons.carrot,
                       label: 'VEGETARIAN',
                     ),

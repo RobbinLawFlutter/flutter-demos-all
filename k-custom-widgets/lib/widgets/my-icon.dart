@@ -1,8 +1,10 @@
+// ignore_for_file: file_names, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:robbinlaw/constants.dart';
 
 class MyIcon extends StatelessWidget {
-  MyIcon({required this.icon, required this.label});
+  const MyIcon({required this.icon, required this.label});
 
   final IconData icon;
   final String label;
