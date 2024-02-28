@@ -48,6 +48,7 @@ class MyPageState extends State<MyPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('running build');
     return Column(
       children: <Widget>[
         Expanded(
@@ -77,10 +78,8 @@ class MyPageState extends State<MyPage> {
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    setState(() {
-                      //First way
-                      updateColor(DietClass.vegetarian);
-                    });
+                    updateColor(DietClass.vegetarian);
+                    setState(() {});
                     print('Vegetarian card was pressed');
                   },
                   child: ReuseableCardSimple(

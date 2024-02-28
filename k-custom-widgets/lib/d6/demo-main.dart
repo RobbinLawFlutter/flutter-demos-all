@@ -43,6 +43,7 @@ class MyPageState extends State<MyPage> {
 
   @override
   Widget build(BuildContext context) {
+    print('running build');
     return Column(
       children: <Widget>[
         Expanded(
