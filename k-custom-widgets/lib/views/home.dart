@@ -48,7 +48,7 @@ class HomeState extends State<Home> {
                   myColor: selectedDietClass == DietClass.omnivore
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.burger,
                     label: 'OMNIVORE',
                   ),
@@ -64,7 +64,7 @@ class HomeState extends State<Home> {
                   myColor: selectedDietClass == DietClass.vegetarian
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.carrot,
                     label: 'VEGETARIAN',
                   ),

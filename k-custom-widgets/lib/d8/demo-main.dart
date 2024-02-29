@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names
+// ignore_for_file: use_key_in_widget_constructors, file_names, avoid_print
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -67,7 +67,7 @@ class MyPageState extends State<MyPage> {
                   myColor: selectedDietClass == DietClass.omnivore
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.burger,
                     label: 'OMNIVORE',
                   ),
@@ -83,7 +83,7 @@ class MyPageState extends State<MyPage> {
                   myColor: selectedDietClass == DietClass.vegetarian
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.carrot,
                     label: 'VEGETARIAN',
                   ),

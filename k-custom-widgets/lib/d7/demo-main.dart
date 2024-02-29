@@ -13,7 +13,6 @@ import 'package:robbinlaw/constants.dart';
 // as a parameter. It is called
 // ReuseableCardEnhanced.
 // Also the use of a slider.
-// Also all constants are modularized into their own file.
 
 // Flutter Slider Widget of the Week
 // https://www.youtube.com/watch?v=ufb4gIPDmEs&list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG&index=58
@@ -68,7 +67,7 @@ class MyPageState extends State<MyPage> {
                   myColor: selectedDietClass == DietClass.omnivore
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.burger,
                     label: 'OMNIVORE',
                   ),
@@ -84,7 +83,7 @@ class MyPageState extends State<MyPage> {
                   myColor: selectedDietClass == DietClass.vegetarian
                       ? kActiveCardColor
                       : kInactiveCardColor,
-                  reusableCardChild: MyIcon(
+                  reusableCardChild: const MyIcon(
                     icon: FontAwesomeIcons.carrot,
                     label: 'VEGETARIAN',
                   ),
