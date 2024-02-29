@@ -9,7 +9,7 @@ import 'package:robbinlaw/constants.dart';
 // This demonstrates passing
 // functions as args as the ReuseableCardSimple
 // class has been enhanced to include
-// the GestureDetector and its onPressed property
+// the GestureDetector and its onTap property
 // as a parameter. It is called
 // ReuseableCardEnhanced.
 // Also the use of a slider.
