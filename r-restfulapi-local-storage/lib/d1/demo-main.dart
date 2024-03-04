@@ -73,15 +73,15 @@ void performTasks() {
   print('myAgeBook isEmpty is: ${myAgeBook.isEmpty}');
   print('myAgeBook isNotEmpty is: ${myAgeBook.isNotEmpty}');
   //Common Map methods: remove, removeWhere, from, of,
-  Map map = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five'};
-  map.remove(2);
-  print(map);
+  Map map1 = {1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five'};
+  map1.remove(2);
+  print(map1);
 
-  map.removeWhere((k, v) => v.startsWith('f'));
-  print(map);
+  map1.removeWhere((k, v) => v.startsWith('f'));
+  print(map1);
 
-  map.clear();
-  print(map);
+  map1.clear();
+  print(map1);
 
   var map2 = Map.from(myAgeBook);
   print('map2: $map2');
