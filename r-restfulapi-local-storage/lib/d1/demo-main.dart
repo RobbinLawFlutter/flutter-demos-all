@@ -113,4 +113,5 @@ void performTasks() {
   });
 
   print(transformedMap);
+  print(map4);
 }

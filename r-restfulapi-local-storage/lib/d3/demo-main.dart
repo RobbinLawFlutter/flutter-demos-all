@@ -29,9 +29,9 @@ class MyPageState extends State<MyPage> {
       child: ElevatedButton(
         child: const Text('Start'),
         onPressed: () {
-          //performTasks1And2();
+          performTasks1And2();
           //performTasks3And4();
-          performTasks5And6();
+          //performTasks5And6();
         },
       ),
     );
@@ -53,7 +53,9 @@ void performTasks5And6() async {
   task6(task5Result);
 }
 
-//In this method the sleep method runs synchronously.
+// In this method the sleep method runs synchronously.
+// The print statement after will not run until the
+// sleep is finished.
 void task1() {
   print('Task 1 start');
   Duration myFiveSeconds = const Duration(seconds: 5);
@@ -62,7 +64,12 @@ void task1() {
   print('Task 1 end');
 }
 
-//In this method the Future.delayed method runs asynchronously.
+// In this task2 method the Future.delayed
+// method runs asynchronously.
+// This means that the Future will be created
+// and then the next line of code print('Task 2 end')
+// will run immediately.
+// Only after the delay will the callback run.
 void task2() {
   print('Task 2 start');
   Duration myFiveSeconds = const Duration(seconds: 5);
@@ -75,14 +82,12 @@ void task2() {
   print('Task 2 end');
 }
 
-//In this method the Future.delayed method runs asynchronously.
+// In this task3 method the Future.delayed
+// method runs asynchronously as in task2.
 String task3() {
   print('Task 3 start');
   String result = 'task 3 init data';
   Duration myFiveSeconds = const Duration(seconds: 5);
-  //async method that will delay for 5 seconds,
-  //and then run the callback method, which is
-  //the second parm.
   Future.delayed(myFiveSeconds, () {
     result = 'task 3 data';
     print('Task 3 future callback complete with $result');
@@ -96,15 +101,19 @@ void task4(String data) {
   print('Task 4 end with $data');
 }
 
-//In this method the Future.delayed method runs synchronously.
+// In this method the Future.delayed
+// method runs synchronously.
 Future<String> task5() async {
   print('Task 5 start');
   String result = 'task 5 init data';
   Duration myFiveSeconds = const Duration(seconds: 5);
-  //async method that will delay for 5 seconds,
-  //and then run the callback method, which is
-  //the second parm.
-  //Using await will cause this to now act synchronously.
+  // async method that will delay for 5 seconds,
+  // and then run the callback method, which is
+  // the second parm.
+  // Using await though will cause this to now
+  // act synchronously.
+  // This means that the print('Task 5 end')
+  // will not run until the callback is run.
   await Future.delayed(myFiveSeconds, () {
     result = 'task 5 data';
     print('Task 5 future callback complete with $result');
