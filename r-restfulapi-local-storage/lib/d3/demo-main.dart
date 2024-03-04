@@ -43,17 +43,7 @@ void performTasks1And2() {
   task2();
 }
 
-void performTasks3And4() {
-  String task3Result = task3();
-  task4(task3Result);
-}
-
-void performTasks5And6() async {
-  String task5Result = await task5();
-  task6(task5Result);
-}
-
-// In this method the sleep method runs synchronously.
+// In this task1 method the sleep method runs synchronously.
 // The print statement after will not run until the
 // sleep is finished.
 void task1() {
@@ -82,6 +72,11 @@ void task2() {
   print('Task 2 end');
 }
 
+void performTasks3And4() {
+  String task3Result = task3();
+  task4(task3Result);
+}
+
 // In this task3 method the Future.delayed
 // method runs asynchronously as in task2.
 String task3() {
@@ -89,7 +84,7 @@ String task3() {
   String result = 'task 3 init data';
   Duration myFiveSeconds = const Duration(seconds: 5);
   Future.delayed(myFiveSeconds, () {
-    result = 'task 3 data';
+    result = 'task 3 final data';
     print('Task 3 future callback complete with $result');
   });
   print('Task 3 end');
@@ -101,21 +96,28 @@ void task4(String data) {
   print('Task 4 end with $data');
 }
 
-// In this method the Future.delayed
+void performTasks5And6() async {
+  String task5Result = await task5();
+  task6(task5Result);
+}
+
+// In this task5 method the Future.delayed
 // method runs synchronously.
+// Because "async" is used in front of the {},
+// an empty Future will be immediately returned to
+// the code that called task5.
+// Only when the "return" is run will
+// the empty Future be filled with a data event.
 Future<String> task5() async {
   print('Task 5 start');
   String result = 'task 5 init data';
   Duration myFiveSeconds = const Duration(seconds: 5);
-  // async method that will delay for 5 seconds,
-  // and then run the callback method, which is
-  // the second parm.
-  // Using await though will cause this to now
+  // Using "await" will cause this to now
   // act synchronously.
   // This means that the print('Task 5 end')
   // will not run until the callback is run.
   await Future.delayed(myFiveSeconds, () {
-    result = 'task 5 data';
+    result = 'task 5 final data';
     print('Task 5 future callback complete with $result');
   });
   print('Task 5 end');
