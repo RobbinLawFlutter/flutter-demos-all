@@ -16,6 +16,7 @@ class HomeView extends StatefulWidget {
 class HomeViewState extends State<HomeView> {
   final SQFliteDbService _databaseService = SQFliteDbService();
   List<Dog> _dogList = [];
+  List<Map<String, dynamic>> listOfDogs = [];
   String _dogName = "";
 
   @override
@@ -26,8 +27,10 @@ class HomeViewState extends State<HomeView> {
 
   void getOrCreateDbAndDisplayAllDogsInDbToConsole() async {
     await _databaseService.getOrCreateDatabaseHandle();
-    _dogList = await _databaseService.getAllDogsFromDb();
-    await printAllDogsInListToConsole(_dogList);
+    _dogList = await _databaseService.getAllDogsFromDb1();
+    listOfDogs = await _databaseService.getAllDogsFromDb();
+    await printAllDogsInListToConsole1(_dogList);
+    await printAllDogsInListToConsole(listOfDogs);
     setState(() {});
   }
 
@@ -43,8 +46,9 @@ class HomeViewState extends State<HomeView> {
           onPressed: () async {
             await _databaseService.deleteDb();
             await _databaseService.getOrCreateDatabaseHandle();
-            _dogList = await _databaseService.getAllDogsFromDb();
-            await printAllDogsInListToConsole(_dogList);
+            _dogList = await _databaseService.getAllDogsFromDb1();
+            await printAllDogsInListToConsole1(_dogList);
+            await printAllDogsInListToConsole(listOfDogs);
             setState(() {});
           },
         ),
@@ -56,17 +60,42 @@ class HomeViewState extends State<HomeView> {
             _addDogToDb();
           },
         ),
-        //We must use an Expanded widget to get
-        //the dynamic ListView to play nice
-        //with the RaisedButtons.
         Expanded(
           child: DogList(dogs: _dogList),
+        ),
+        Expanded(
+          child: ListView.builder(
+              itemCount: _dogList.length,
+              itemBuilder: (BuildContext context, index) {
+                return Card(
+                  child: ListTile(
+                    title: Text('name: ${_dogList[index].name}'),
+                    subtitle: Text('id: ${_dogList[index].id}'),
+                    trailing: Text('age: ${_dogList[index].age}'),
+                  ),
+                );
+              }),
         ),
       ],
     );
   }
 
-  Future<void> printAllDogsInListToConsole(List<Dog> listOfDogs) async {
+  Future<void> printAllDogsInListToConsole(List<Map<String, dynamic>> listOfDogs) async {
+    try {
+      print('HomeView printAllDogsInListToConsole TRY');
+      if (listOfDogs.isEmpty) {
+        print('No Dogs in the list');
+      } else {
+        listOfDogs.forEach((dog) {
+          print('Dog{id: ${dog['id']}, name: ${dog['name']}, age: ${dog['age']}}');
+        });
+      }
+    } catch (e) {
+      print('HomeView printAllDogsInDbToConsole CATCH: $e');
+    }
+  }
+
+  Future<void> printAllDogsInListToConsole1(List<Dog> listOfDogs) async {
     try {
       print('HomeView printAllDogsInListToConsole TRY');
       if (listOfDogs.isEmpty) {
@@ -106,8 +135,9 @@ class HomeViewState extends State<HomeView> {
                   try {
                     await _databaseService.insertDog(
                         Dog(id: _dogList.length, name: _dogName, age: 5));
-                    _dogList = await _databaseService.getAllDogsFromDb();
-                    await printAllDogsInListToConsole(_dogList);
+                    _dogList = await _databaseService.getAllDogsFromDb1();
+                    await printAllDogsInListToConsole1(_dogList);
+                    await printAllDogsInListToConsole(listOfDogs);
                     setState(() {});
                   } catch (e) {
                     print('HomeView _addDogToDb catch: $e');

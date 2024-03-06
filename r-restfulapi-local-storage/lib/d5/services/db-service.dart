@@ -48,7 +48,21 @@ class SQFliteDbService {
     }
   }
   
-  Future<List<Dog>> getAllDogsFromDb() async {
+  Future<List<Map<String, dynamic>>> getAllDogsFromDb() async {
+    try {
+      print('SQFliteDbService getAllDogsFromDb TRY');
+      // Query the table for all The Dogs.
+      //The .query will return a list with each item in the list being a map.
+      final List<Map<String, dynamic>> dogMap = await db!.query('dogs');
+      return dogMap;
+      
+    } catch (e) {
+      print('SQFliteDbService getAllDogsFromDb CATCH: $e');
+      return <Map<String, dynamic>>[];
+    }
+  }
+
+  Future<List<Dog>> getAllDogsFromDb1() async {
     try {
       print('SQFliteDbService getAllDogsFromDb TRY');
       // Query the table for all The Dogs.
