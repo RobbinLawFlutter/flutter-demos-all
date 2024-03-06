@@ -47,6 +47,7 @@ class HomeViewState extends State<HomeView> {
             await _databaseService.deleteDb();
             await _databaseService.getOrCreateDatabaseHandle();
             _dogList = await _databaseService.getAllDogsFromDb1();
+            listOfDogs = await _databaseService.getAllDogsFromDb();
             await printAllDogsInListToConsole1(_dogList);
             await printAllDogsInListToConsole(listOfDogs);
             setState(() {});
@@ -133,9 +134,12 @@ class HomeViewState extends State<HomeView> {
                 if (_dogName.isNotEmpty) {
                   print('User entered dogName: $_dogName');
                   try {
+                    await _databaseService.insertDog1(
+                        Dog(id: _dogList.length, name: _dogName, age: 5));
                     await _databaseService.insertDog(
                         Dog(id: _dogList.length, name: _dogName, age: 5));
                     _dogList = await _databaseService.getAllDogsFromDb1();
+                    listOfDogs = await _databaseService.getAllDogsFromDb();
                     await printAllDogsInListToConsole1(_dogList);
                     await printAllDogsInListToConsole(listOfDogs);
                     setState(() {});

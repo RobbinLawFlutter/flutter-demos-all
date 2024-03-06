@@ -82,7 +82,23 @@ class SQFliteDbService {
     }
   }
 
-  Future<void> insertDog(Dog dog) async {
+  Future<void> insertDog(Map<String, dynamic> dog) async {
+    try {
+      print('SQFliteDbService insertDog TRY');
+      // Insert the Dog into the correct table. Also specify the
+      // `conflictAlgorithm`. In this case, if the same dog is inserted
+      // multiple times, it replaces the previous data.
+      await db!.insert(
+        'dogs',
+        dog,
+        //conflictAlgorithm: sqflitePackage.ConflictAlgorithm.replace,
+      );
+    } catch (e) {
+      print('SQFliteDbService insertDog CATCH: $e');
+    }
+  }
+
+  Future<void> insertDog1(Dog dog) async {
     try {
       print('SQFliteDbService insertDog TRY');
       // Insert the Dog into the correct table. Also specify the
