@@ -1,7 +1,3 @@
-//Edmonton, Alberta Data
-//lon = -113.469
-//lat = 53.55
-
 // ignore_for_file: unused_local_variable
 
 import 'dart:async';
@@ -11,7 +7,7 @@ const url = 'https://api.quotable.io/random';
 
 class RestAPIService {
   
-  Future<dynamic> getData() async {
+  Future<dynamic> getRestfulAPIData() async {
     Uri url = Uri(
       scheme: 'https',
       host: 'api.quotable.io',

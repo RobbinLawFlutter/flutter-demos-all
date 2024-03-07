@@ -10,6 +10,7 @@ class HomeView extends StatefulWidget {
 
 class HomeViewState extends State<HomeView> {
   final RestAPIService restAPIService = RestAPIService();
+   Map<String, dynamic> data = {'content': ''};
 
   @override
   Widget build(BuildContext context) {
@@ -23,20 +24,14 @@ class HomeViewState extends State<HomeView> {
             ),
             onPressed: () async {
               try {
-                var data = await restAPIService.getData();
-                if (data == null) {
-                  print("Call to getData failed to return data");
-                } else {
-                  print(data);
-                  //updateUI(data);
-                  setState(() {});
-                }
+                data = await restAPIService.getRestfulAPIData();
+                setState(() {});
               } catch (e) {
                 print('HomeView catch: $e');
               }
-              //setState(() {});
             },
           ),
+          Text(data['content']),
         ],
       ),
     );
