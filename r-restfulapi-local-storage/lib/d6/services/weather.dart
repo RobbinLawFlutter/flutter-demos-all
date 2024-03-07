@@ -19,7 +19,7 @@ class WeatherService {
       scheme: 'https',
       host: 'api.openweathermap.org',
       path: '/data/2.5/weather',
-      query: 'q=$cityName&appid=$apiKey&units=metric'
+      query: 'q=$cityName&units=metric&appid=$apiKey'
     );
     NetworkService networkService = NetworkService(url);
     var data = await networkService.getData();

@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:robbinlaw/d6/models/model-element-list.dart';
-import 'package:robbinlaw/d6/models/model-element.dart';
 import 'package:robbinlaw/d6/services/weather.dart';
 import 'package:robbinlaw/d6/services/db-service.dart';
 
@@ -13,10 +11,10 @@ class HomeView extends StatefulWidget {
 }
 
 class HomeViewState extends State<HomeView> {
-  final WeatherService _weatherService = WeatherService();
-  final SQFliteDbService _databaseService = SQFliteDbService();
-  List<ModelElement> _list = [];
-  String _citySymbol = "";
+  final WeatherService weatherService = WeatherService();
+  final SQFliteDbService databaseService = SQFliteDbService();
+  List<Map<String, dynamic>> listOfRecords = [];
+  String citySymbol = "";
   late String weatherDescription;
   late int temperature;
   late String weatherIcon;
@@ -27,15 +25,15 @@ class HomeViewState extends State<HomeView> {
   void initState() {
     print('HomeView initState begin');
     super.initState();
-    getOrCreateDbAndDisplayAllStocksInDb();
+    getOrCreateDbAndDisplayAllRecordsInDb();
   }
 
-  void getOrCreateDbAndDisplayAllStocksInDb() async {
-    print('HomeView getOrCreateDbAndDisplayAllStocksInDb() begin');
-    await _databaseService.getOrCreateDatabaseHandle();
-    _list = await _databaseService.getAllRecordsFromDb();
-    await _databaseService.printAllRecordsInDbToConsole();
-    print('HomeView getOrCreateDbAndDisplayAllStocksInDb() end');
+  void getOrCreateDbAndDisplayAllRecordsInDb() async {
+    print('HomeView getOrCreateDbAndDisplayAllRecordsInDb() begin');
+    await databaseService.getOrCreateDatabaseHandle();
+    listOfRecords = await databaseService.getAllRecordsFromDb();
+    await databaseService.printAllRecordsInDbToConsole();
+    print('HomeView getOrCreateDbAndDisplayAllRecordsInDb() end');
     setState(() {});
   }
 
@@ -50,10 +48,10 @@ class HomeViewState extends State<HomeView> {
             'Delete All Records and Db',
           ),
           onPressed: () async {
-            await _databaseService.deleteDb();
-            await _databaseService.getOrCreateDatabaseHandle();
-            _list = await _databaseService.getAllRecordsFromDb();
-            await _databaseService.printAllRecordsInDbToConsole();
+            await databaseService.deleteDb();
+            await databaseService.getOrCreateDatabaseHandle();
+            listOfRecords = await databaseService.getAllRecordsFromDb();
+            await databaseService.printAllRecordsInDbToConsole();
             setState(() {});
           },
         ),
@@ -62,14 +60,31 @@ class HomeViewState extends State<HomeView> {
             'Add City Weather',
           ),
           onPressed: () {
-            _inputCity();
+            inputCity();
           },
         ),
-        //We must use an Expanded widget to get
-        //the dynamic ListView to play nice
-        //with the TextButton.
-        //StockList(stocks: _stockList),
-        Expanded(child: ModelElementList(modelElements: _list)),
+        Expanded(
+          child: ListView.builder(
+              itemCount: listOfRecords.length,
+              itemBuilder: (BuildContext context, index) {
+                return Card(
+                  child: ListTile(
+                    title: Text(
+                      '${listOfRecords[index]['city']}: ${listOfRecords[index]['temperature']} degC',
+                      style: const TextStyle(fontSize: 30),
+                    ),
+                    subtitle: Text(
+                      '${listOfRecords[index]['message']} ',
+                      style: const TextStyle(fontSize: 25),
+                    ),
+                    trailing: Text(
+                      '${listOfRecords[index]['condition']} ',
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                  ),
+                );
+              }),
+        ),
       ],
     );
   }
@@ -91,15 +106,15 @@ class HomeViewState extends State<HomeView> {
       print('Temperature: $temperature degC');
       int condition = weatherData['weather'][0]['id'];
       print('Current Condition: $condition');
-      weatherIcon = _weatherService.getWeatherIcon(condition);
+      weatherIcon = weatherService.getWeatherIcon(condition);
       cityName = weatherData['name'];
       print('City Name: $cityName');
-      weatherMessage = _weatherService.getMessage(temperature);
+      weatherMessage = weatherService.getMessage(temperature);
       print(weatherMessage);
     });
   }
 
-  Future<void> _inputCity() async {
+  Future<void> inputCity() async {
     await showDialog<String>(
         context: context,
         builder: (BuildContext context) {
@@ -109,41 +124,39 @@ class HomeViewState extends State<HomeView> {
             content: TextField(
               decoration: const InputDecoration(hintText: "City Name"),
               onChanged: (String value) {
-                _citySymbol = value;
+                citySymbol = value;
               },
             ),
             actions: <Widget>[
               TextButton(
                 child: const Text("Add City"),
                 onPressed: () async {
-                  if (_citySymbol.isNotEmpty) {
-                    print('User entered City: $_citySymbol');
-
+                  if (citySymbol.isNotEmpty) {
+                    print('User entered City: $citySymbol');
                     try {
                       var data =
-                          await _weatherService.getCityWeatherData(_citySymbol);
+                          await weatherService.getCityWeatherData(citySymbol);
                       if (data == null) {
                         print(
                             "Call to getCityWeatherData failed to return data");
                       } else {
                         updateUI(data);
-                        await _databaseService.insertRecord(
-                          ModelElement(
-                            city: cityName,
-                            temperature: temperature,
-                            message: weatherMessage,
-                            condition: weatherIcon,
-                          ),
-                        );
-                        _list = await _databaseService.getAllRecordsFromDb();
-                        _databaseService.printAllRecordsInDbToConsole();
+                        await databaseService.insertRecord({
+                          'city': cityName,
+                          'temperature': temperature,
+                          'message': weatherMessage,
+                          'condition': weatherIcon
+                        });
+                        listOfRecords =
+                            await databaseService.getAllRecordsFromDb();
+                        databaseService.printAllRecordsInDbToConsole();
                         setState(() {});
                       }
                     } catch (e) {
-                      print('HomeView _inputStock catch: $e');
+                      print('HomeView inputCity catch: $e');
                     }
                   }
-                  _citySymbol = "";
+                  citySymbol = "";
                   Navigator.pop(context);
                 },
               ),

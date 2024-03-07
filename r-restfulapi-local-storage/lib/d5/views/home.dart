@@ -3,8 +3,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:robbinlaw/d5/services/db-service.dart';
-import 'package:robbinlaw/d5/models/dog.dart';
-import 'package:robbinlaw/d5/models/dog_list.dart';
 
 //https://flutter.dev/docs/cookbook/persistence/sqlite
 
@@ -14,10 +12,9 @@ class HomeView extends StatefulWidget {
 }
 
 class HomeViewState extends State<HomeView> {
-  final SQFliteDbService _databaseService = SQFliteDbService();
-  List<Dog> _dogList = [];
+  final SQFliteDbService databaseService = SQFliteDbService();
   List<Map<String, dynamic>> listOfDogs = [];
-  String _dogName = "";
+  String dogName = "";
 
   @override
   void initState() {
@@ -26,10 +23,8 @@ class HomeViewState extends State<HomeView> {
   }
 
   void getOrCreateDbAndDisplayAllDogsInDbToConsole() async {
-    await _databaseService.getOrCreateDatabaseHandle();
-    _dogList = await _databaseService.getAllDogsFromDb1();
-    listOfDogs = await _databaseService.getAllDogsFromDb();
-    await printAllDogsInListToConsole1(_dogList);
+    await databaseService.getOrCreateDatabaseHandle();
+    listOfDogs = await databaseService.getAllDogsFromDb();
     await printAllDogsInListToConsole(listOfDogs);
     setState(() {});
   }
@@ -44,11 +39,9 @@ class HomeViewState extends State<HomeView> {
             'Delete Database',
           ),
           onPressed: () async {
-            await _databaseService.deleteDb();
-            await _databaseService.getOrCreateDatabaseHandle();
-            _dogList = await _databaseService.getAllDogsFromDb1();
-            listOfDogs = await _databaseService.getAllDogsFromDb();
-            await printAllDogsInListToConsole1(_dogList);
+            await databaseService.deleteDb();
+            await databaseService.getOrCreateDatabaseHandle();
+            listOfDogs = await databaseService.getAllDogsFromDb();
             await printAllDogsInListToConsole(listOfDogs);
             setState(() {});
           },
@@ -58,21 +51,18 @@ class HomeViewState extends State<HomeView> {
             'Add Dog',
           ),
           onPressed: () {
-            _addDogToDb();
+            addDogToDb();
           },
         ),
         Expanded(
-          child: DogList(dogs: _dogList),
-        ),
-        Expanded(
           child: ListView.builder(
-              itemCount: _dogList.length,
+              itemCount: listOfDogs.length,
               itemBuilder: (BuildContext context, index) {
                 return Card(
                   child: ListTile(
-                    title: Text('name: ${_dogList[index].name}'),
-                    subtitle: Text('id: ${_dogList[index].id}'),
-                    trailing: Text('age: ${_dogList[index].age}'),
+                    title: Text('name: ${listOfDogs[index]['name']}'),
+                    subtitle: Text('id: ${listOfDogs[index]['id']}'),
+                    trailing: Text('age: ${listOfDogs[index]['age']}'),
                   ),
                 );
               }),
@@ -96,22 +86,7 @@ class HomeViewState extends State<HomeView> {
     }
   }
 
-  Future<void> printAllDogsInListToConsole1(List<Dog> listOfDogs) async {
-    try {
-      print('HomeView printAllDogsInListToConsole TRY');
-      if (listOfDogs.isEmpty) {
-        print('No Dogs in the list');
-      } else {
-        listOfDogs.forEach((dog) {
-          print('Dog{id: ${dog.id}, name: ${dog.name}, age: ${dog.age}}');
-        });
-      }
-    } catch (e) {
-      print('HomeView printAllDogsInDbToConsole CATCH: $e');
-    }
-  }
-
-  Future<void> _addDogToDb() async {
+  Future<void> addDogToDb() async {
     await showDialog<String>(
       context: context,
       builder: (BuildContext context) {
@@ -123,7 +98,7 @@ class HomeViewState extends State<HomeView> {
               hintText: "Dogs Name",
             ),
             onChanged: (String value) {
-              _dogName = value;
+              dogName = value;
             },
           ),
           actions: <Widget>[
@@ -131,24 +106,19 @@ class HomeViewState extends State<HomeView> {
               child: const Text("AddDog"),
               onPressed: () async {
                 Navigator.pop(context);
-                if (_dogName.isNotEmpty) {
-                  print('User entered dogName: $_dogName');
+                if (dogName.isNotEmpty) {
+                  print('User entered dogName: $dogName');
                   try {
-                    await _databaseService.insertDog1(
-                        Dog(id: _dogList.length, name: _dogName, age: 5));
-                    await _databaseService.insertDog(
-                        Dog(id: _dogList.length, name: _dogName, age: 5));
-                    _dogList = await _databaseService.getAllDogsFromDb1();
-                    listOfDogs = await _databaseService.getAllDogsFromDb();
-                    await printAllDogsInListToConsole1(_dogList);
+                    await databaseService.insertDog(
+                        {'id': listOfDogs.length, 'name': dogName, 'age': 5});
+                    listOfDogs = await databaseService.getAllDogsFromDb();
                     await printAllDogsInListToConsole(listOfDogs);
                     setState(() {});
                   } catch (e) {
-                    print('HomeView _addDogToDb catch: $e');
+                    print('HomeView addDogToDb catch: $e');
                   }
                 }
-                _dogName = "";
-                //Navigator.pop(context);
+                dogName = "";
               },
             ),
             TextButton(

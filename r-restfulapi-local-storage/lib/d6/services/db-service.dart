@@ -2,7 +2,6 @@
 
 import 'package:path/path.dart' as pathPackage;
 import 'package:sqflite/sqflite.dart' as sqflitePackage;
-import 'package:robbinlaw/d6/models/model-element.dart';
 
 class SQFliteDbService {
   late sqflitePackage.Database? db;
@@ -29,13 +28,13 @@ class SQFliteDbService {
 
   Future<void> printAllRecordsInDbToConsole() async {
     try {
-      List<ModelElement> listOfRecords = await getAllRecordsFromDb();
+      List<Map<String, dynamic>> listOfRecords = await getAllRecordsFromDb();
       if (listOfRecords.isEmpty) {
         print('No records in the db');
       } else {
         listOfRecords.forEach((item) {
           print(
-              '{city: ${item.city}, temp: ${item.temperature}, message: ${item.message}, condition: ${item.condition}}');
+              '{city: ${item['city']}, temp: ${item['temperature']}, message: ${item['message']}, condition: ${item['condition']}}');
         });
       }
     } catch (e) {
@@ -43,24 +42,13 @@ class SQFliteDbService {
     }
   }
 
-  Future<List<ModelElement>> getAllRecordsFromDb() async {
+  Future<List<Map<String, dynamic>>> getAllRecordsFromDb() async {
     try {
-      // Query the table for all The Records.
-      // The .query will return a list with each item in the list being a map.
-      final List<Map<String, dynamic>> itemMap = await db!.query('AppData');
-      print('itemMap: $itemMap');
-      // Convert the List<Map<String, dynamic> into a List<ModelElement>.
-      return List.generate(itemMap.length, (i) {
-        return ModelElement(
-          city: itemMap[i]['city'],
-          temperature: itemMap[i]['temperature'],
-          message: itemMap[i]['message'],
-          condition: itemMap[i]['condition']
-        );
-      });
+      final List<Map<String, dynamic>> listOfItems = await db!.query('AppData');
+      return listOfItems;
     } catch (e) {
       print('SQFliteDbService getAllRecordsFromDb CATCH: $e');
-      return [];
+      return <Map<String, dynamic>>[];
     }
   }
 
@@ -68,18 +56,17 @@ class SQFliteDbService {
     try {
       await sqflitePackage.deleteDatabase(path);
       print('Db deleted');
-      //getOrCreateDatabaseHandle();
       db = null;
     } catch (e) {
       print('SQFliteDbService deleteDb CATCH: $e');
     }
   }
 
-  Future<void> insertRecord(ModelElement modelElement) async {
+  Future<void> insertRecord(Map<String, dynamic> record) async {
     try {
       await db!.insert(
         'AppData',
-        modelElement.toMap(),
+        record,
         conflictAlgorithm: sqflitePackage.ConflictAlgorithm.replace,
       );
     } catch (e) {
@@ -87,27 +74,27 @@ class SQFliteDbService {
     }
   }
 
-  Future<void> updateRecord(ModelElement modelElement) async {
+  Future<void> updateRecord(Map<String, dynamic> record) async {
     try {
       await db!.update(
         'AppData',
-        modelElement.toMap(),
+        record,
         where: "city = ?",
         // whereArg prevents SQL injection.
-        whereArgs: [modelElement.city],
+        whereArgs: [record['city']],
       );
     } catch (e) {
       print('SQFliteDbService updateRecord CATCH: $e');
     }
   }
 
-  Future<void> deleteRecord(ModelElement modelElement) async {
+  Future<void> deleteRecord(Map<String, dynamic> record) async {
     try {
       await db!.delete(
         'AppData',
         where: "city = ?",
         // whereArg to prevent SQL injection.
-        whereArgs: [modelElement.city],
+        whereArgs: [record['city']],
       );
     } catch (e) {
       print('SQFliteDbService deleteRecord CATCH: $e');

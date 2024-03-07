@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 // ListView Widget of the Week
 // https://www.youtube.com/watch?v=KJpkjHGiI5A&vl=en
- 
+
 class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,32 +26,53 @@ class MyPage extends StatefulWidget {
 
 class MyPageState extends State<MyPage> {
   List<String> listItems = [];
-  final TextEditingController eCtrl = TextEditingController();
+  final TextEditingController textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
-        TextField(
-          controller: eCtrl,
-          style: const TextStyle(
-            fontSize: 60,
+      children: [
+        Card(
+          margin: const EdgeInsets.all(20),
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    controller: textEditingController,
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add),
+                  onPressed: () {
+                    try {
+                      if (textEditingController.text != "") {
+                        listItems.add(textEditingController.text);
+                        textEditingController.clear();
+                        setState(() {});
+                      }
+                    } catch (e) {
+                      print(e);
+                    }
+                  },
+                )
+              ],
+            ),
           ),
-          onSubmitted: (text) {
-            listItems.add(text);
-            eCtrl.clear();
-            setState(() {});
-          },
         ),
         Expanded(
           child: ListView.builder(
             itemCount: listItems.length,
             itemBuilder: (BuildContext context, int index) {
-              return Text(
-                listItems[index],
-                style: const TextStyle(
-                  fontSize: 90,
+              return Card(
+                  child: ListTile(
+                title: Text(
+                  listItems[index],
+                  style: const TextStyle(
+                    fontSize: 90,
+                  ),
                 ),
-              );
+              ));
             },
           ),
         ),
