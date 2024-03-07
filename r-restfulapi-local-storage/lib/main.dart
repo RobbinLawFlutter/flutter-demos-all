@@ -12,9 +12,9 @@ import 'package:robbinlaw/d3/demo-main.dart' as d3;
 import 'package:robbinlaw/d4/demo-main.dart' as d4;
 // D5 - SqLite
 import 'package:robbinlaw/d5/demo-main.dart' as d5;
-// D6 - Weather App
+// D6 - Restful API
 import 'package:robbinlaw/d6/demo-main.dart' as d6;
-// D7 - 
+// D7 - Weather App
 import 'package:robbinlaw/d7/demo-main.dart' as d7;
 // D8 - 
 import 'package:robbinlaw/d8/demo-main.dart' as d8;
@@ -87,14 +87,14 @@ class RootState extends State<Root> {
             const PopupMenuItem(
               value: 6,
               child: ListTile(
-                title: Text('D6 - Weather'),
+                title: Text('D6 - Restful API'),
               ),
             ),
             const PopupMenuDivider(),
             const PopupMenuItem(
               value: 7,
               child: ListTile(
-                title: Text('D7 - '),
+                title: Text('D7 - Weather'),
               ),
             ),
             const PopupMenuDivider(),

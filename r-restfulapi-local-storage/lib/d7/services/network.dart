@@ -15,7 +15,7 @@ class NetworkService {
     } else {
       String data = response.body;
       var jsonData = jsonDecode(data);
-      //print('json data: $jsonData');
+      print('json data: $jsonData');
       return jsonData;
     }
   }

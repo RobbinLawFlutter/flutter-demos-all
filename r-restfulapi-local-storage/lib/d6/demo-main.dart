@@ -9,7 +9,7 @@ class Demo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'D6 - Weather',
+          'D6 - Restful API',
         ),
       ),
       body: HomeView(),
