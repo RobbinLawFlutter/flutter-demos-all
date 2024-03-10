@@ -1,9 +1,7 @@
-// ignore_for_file: todo, avoid_print, use_key_in_widget_constructors, avoid_function_literals_in_foreach_calls, use_build_context_synchronously, unused_local_variable
+// ignore_for_file: todo, avoid_print, use_key_in_widget_constructors, avoid_function_literals_in_foreach_calls, use_build_context_synchronously, unused_local_variable, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-import '../models/stock-list.dart';
-import '../models/stock.dart';
 import '../services/stock-service.dart';
 import '../services/db-service.dart';
 
@@ -15,7 +13,7 @@ class HomeView extends StatefulWidget {
 class HomeViewState extends State<HomeView> {
   final StockService stockService = StockService();
   final SQFliteDbService databaseService = SQFliteDbService();
-  var stockList = <Stock>[];
+  List<Map<String, dynamic>> stockList = [];
   String stockSymbol = "";
 
   @override
@@ -60,11 +58,9 @@ class HomeViewState extends State<HomeView> {
               inputStock();
             },
           ),
-          //We must use an Expanded widget to get
-          //the dynamic ListView to play nice
-          //with the TextButton.
           Expanded(
-            child: StockList(stocks: stockList),
+            //TODO: Replace this Text child with a ListView.builder
+            child: Text('Hi'),
           ),
         ],
       ),
