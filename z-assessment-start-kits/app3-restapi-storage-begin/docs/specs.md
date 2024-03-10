@@ -14,14 +14,11 @@ Commit your work and upload to a remote github repo and then submit the link to 
 
 - Place your code immediately below the `TODO:` comment.
 
-- `Do NOT change any of the code outside of a TODO: comment`.
+- `Do NOT change any of the code outside of a TODO: comment unless required`.
 
 ### Part 1:
 
-- Modify the following methods of the `SQFliteDbService` class in the `services/db-service.dart` file:
-  - `insertStock()` to insert a stock into the database.
-  - `updateStock()` to update stock information in the database.
-  - `deleteStock()` to delete a stock from the database.
+- Modify methods of the `SQFliteDbService` class in the `services/db-service.dart` file:
 
 ### Part 2:
 

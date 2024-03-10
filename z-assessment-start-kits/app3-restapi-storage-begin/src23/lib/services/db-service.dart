@@ -26,7 +26,7 @@ class SQFliteDbService {
   Future<List<Map<String, dynamic>>> getAllStocksFromDb() async {
     try {
       //TODO: Put your code here to complete this method.
-      // Replace this return.
+      // Replace this return with valid data.
       return <Map<String, dynamic>>[];
     } catch (e) {
       print('SQFliteDbService getAllStocksFromDb: $e');
@@ -36,8 +36,8 @@ class SQFliteDbService {
 
   Future<void> deleteDb() async {
     try {
-      await sqflitePackage.deleteDatabase(path);
-      print('Db deleted');
+      //TODO: Put your code here to implement this method.
+      print('Not Implemented Yet');
     } catch (e) {
       print('SQFliteDbService deleteDb: $e');
     }
