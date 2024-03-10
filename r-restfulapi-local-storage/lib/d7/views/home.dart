@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:robbinlaw/d7/services/weather.dart';
+import 'package:robbinlaw/d7/services/restapi.dart';
 import 'package:robbinlaw/d7/services/db-service.dart';
 
 class HomeView extends StatefulWidget {
@@ -11,7 +11,7 @@ class HomeView extends StatefulWidget {
 }
 
 class HomeViewState extends State<HomeView> {
-  final WeatherService weatherService = WeatherService();
+  final RestAPIService restAPIService = RestAPIService();
   final SQFliteDbService databaseService = SQFliteDbService();
   List<Map<String, dynamic>> listOfRecords = [];
   String citySymbol = "";
@@ -106,10 +106,10 @@ class HomeViewState extends State<HomeView> {
       print('Temperature: $temperature degC');
       int condition = weatherData['weather'][0]['id'];
       print('Current Condition: $condition');
-      weatherIcon = weatherService.getWeatherIcon(condition);
+      weatherIcon = restAPIService.getWeatherIcon(condition);
       cityName = weatherData['name'];
       print('City Name: $cityName');
-      weatherMessage = weatherService.getMessage(temperature);
+      weatherMessage = restAPIService.getMessage(temperature);
       print(weatherMessage);
     });
   }
@@ -135,10 +135,10 @@ class HomeViewState extends State<HomeView> {
                     print('User entered City: $citySymbol');
                     try {
                       var data =
-                          await weatherService.getCityWeatherData(citySymbol);
+                          await restAPIService.getRestfulAPIData(citySymbol);
                       if (data == null) {
                         print(
-                            "Call to getCityWeatherData failed to return data");
+                            "Call to getRestfulAPIData failed to return data");
                       } else {
                         updateUI(data);
                         await databaseService.insertRecord({
