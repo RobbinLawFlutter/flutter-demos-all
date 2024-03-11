@@ -1,7 +1,7 @@
 // ignore_for_file: unused_local_variable
 
 import 'dart:async';
-import 'package:robbinlaw/d6/services/network.dart';
+import 'package:robbinlaw/d7/services/network.dart';
 
 const apiKey = 'eada4f9ea302c58abd6d02fb791a812a';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
@@ -9,7 +9,7 @@ const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 class RestAPIService {
   
   Future<dynamic> getRestfulAPIData(String cityName) async {
-    var urlOneString = '$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric';
+    var urlOneString = Uri.parse('$openWeatherMapURL?q=$cityName&appid=$apiKey&units=metric');
     
     Uri url = Uri(
       scheme: 'https',

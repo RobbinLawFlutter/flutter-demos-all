@@ -89,31 +89,6 @@ class HomeViewState extends State<HomeView> {
     );
   }
 
-  void updateUI(dynamic weatherData) {
-    setState(() {
-      if (weatherData == null) {
-        temperature = 0;
-        weatherIcon = 'Error';
-        weatherMessage = 'Unable to get weather data';
-        cityName = '';
-        return;
-      }
-      weatherDescription = weatherData['weather'][0]['description'];
-      print('Weather Description: $weatherDescription');
-      double temp = weatherData['main']['temp'];
-      //temperature = temp;
-      temperature = temp.toInt();
-      print('Temperature: $temperature degC');
-      int condition = weatherData['weather'][0]['id'];
-      print('Current Condition: $condition');
-      weatherIcon = restAPIService.getWeatherIcon(condition);
-      cityName = weatherData['name'];
-      print('City Name: $cityName');
-      weatherMessage = restAPIService.getMessage(temperature);
-      print(weatherMessage);
-    });
-  }
-
   Future<void> inputCity() async {
     await showDialog<String>(
         context: context,
@@ -167,5 +142,28 @@ class HomeViewState extends State<HomeView> {
             ],
           );
         });
+  }
+
+  void updateUI(dynamic weatherData) {
+    if (weatherData == null) {
+      temperature = 0;
+      weatherIcon = 'Error';
+      weatherMessage = 'Unable to get weather data';
+      cityName = '';
+      return;
+    }
+    weatherDescription = weatherData['weather'][0]['description'];
+    print('Weather Description: $weatherDescription');
+    double temp = weatherData['main']['temp'];
+    //temperature = temp;
+    temperature = temp.toInt();
+    print('Temperature: $temperature degC');
+    int condition = weatherData['weather'][0]['id'];
+    print('Current Condition: $condition');
+    weatherIcon = restAPIService.getWeatherIcon(condition);
+    cityName = weatherData['name'];
+    print('City Name: $cityName');
+    weatherMessage = restAPIService.getMessage(temperature);
+    print(weatherMessage);
   }
 }
