@@ -35,34 +35,36 @@ class HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: const Text('Stock Ticker'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ElevatedButton(
-            child: const Text(
-              'Delete All Records and Db',
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: const Text(
+                'Delete All Records and Db',
+              ),
+              onPressed: () async {
+                await databaseService.deleteDb();
+                await databaseService.getOrCreateDatabaseHandle();
+                stockList = await databaseService.getAllStocksFromDb();
+                await databaseService.printAllStocksInDbToConsole();
+                setState(() {});
+              },
             ),
-            onPressed: () async {
-              await databaseService.deleteDb();
-              await databaseService.getOrCreateDatabaseHandle();
-              stockList = await databaseService.getAllStocksFromDb();
-              await databaseService.printAllStocksInDbToConsole();
-              setState(() {});
-            },
-          ),
-          ElevatedButton(
-            child: const Text(
-              'Add Stock',
+            ElevatedButton(
+              child: const Text(
+                'Add Stock',
+              ),
+              onPressed: () {
+                inputStock();
+              },
             ),
-            onPressed: () {
-              inputStock();
-            },
-          ),
-          Expanded(
-            //TODO: Replace this Text child with a ListView.builder
-            child: Text('Hi'),
-          ),
-        ],
+            Expanded(
+              //TODO: Replace this Text child with a ListView.builder
+              child: Text('Hi'),
+            ),
+          ],
+        ),
       ),
     );
   }
