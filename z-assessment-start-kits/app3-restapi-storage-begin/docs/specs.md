@@ -19,6 +19,7 @@ Commit your work and upload to a remote github repo and then submit the link to 
 ### Part 1:
 
 - Modify methods of the `SQFliteDbService` class in the `services/db-service.dart` file:
+- Modify methods of the `StockService` class in the `services/stock-service.dart` file:
 
 ### Part 2:
 
