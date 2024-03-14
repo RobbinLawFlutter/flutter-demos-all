@@ -18,13 +18,13 @@ Commit your work and upload to a remote github repo and then submit the link to 
 
 ### Part 1:
 
-- Modify methods of the `SQFliteDbService` class in the `services/db-service.dart` file:
-- Modify methods of the `StockService` class in the `services/stock-service.dart` file:
+- Modify methods of the `SQFliteDbService` class in the `services/db-service.dart` file as per the TODO comments in the file.
+- Modify methods of the `StockService` class in the `services/stock-service.dart` file as per the TODO comments in the file.
 
 ### Part 2:
 
 - Modify the following method of the `HomeView` class in the `views/home.dart` file:
-  - `_inputStock()` to insert a stock into the database when the `Add Stock` button is pressed.
+  - `inputStock()` to insert a stock into the database when the `Add Stock` button is pressed.
 
 ## Sample Screen Shots
  
