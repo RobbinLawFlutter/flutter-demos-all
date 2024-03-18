@@ -25,27 +25,12 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
-  Timer? timer;
   Duration interval = const Duration(seconds: 2);
   int maxCount = 10;
   int counter = 0;
-
-  StreamController<int> controller = StreamController<int>(
-    onListen: () {
-      print('StreamController onListen');
-    },
-    onPause: () {
-      print('StreamController onPause');
-    },
-    onResume: () {
-      print('StreamController onResume');
-    },
-    onCancel: () {
-      print('StreamController onCancel');
-    },
-  );
-
-  StreamSubscription<int>? subscription;
+  Timer? timer;
+  late StreamController<int> controller;
+  late StreamSubscription<int> subscription;
 
   void startTimer() {
     if(timer == null){
@@ -82,10 +67,9 @@ class MyPageState extends State<MyPage> {
         controller.add(counter);
       }
       if (counter == maxCount) {
+        counter = 0;
         // Stop and kill the timer instance.
         stopTimer();
-        // Ask stream to shut down and tell listeners.
-        controller.close();
       }
     } catch(e){
       print('error in tick $e');
@@ -95,6 +79,21 @@ class MyPageState extends State<MyPage> {
   @override
   Widget build(BuildContext context) {
     print('build');
+    counter = 0;
+    controller = StreamController<int>(
+    onListen: () {
+      print('StreamController onListen');
+    },
+    onPause: () {
+      print('StreamController onPause');
+    },
+    onResume: () {
+      print('StreamController onResume');
+    },
+    onCancel: () {
+      print('StreamController onCancel');
+    },
+  );
     //subscribe to listen to the stream.
     subscription = controller.stream.listen((event) {
       print('StreamSubscription onData: $event');
@@ -128,13 +127,26 @@ class MyPageState extends State<MyPage> {
           ElevatedButton(
             child: const Text('Pause Subscription'),
             onPressed: () {
-              subscription?.pause();
+              subscription.pause();
             },
           ),
           ElevatedButton(
             child: const Text('Resume Subscription'),
             onPressed: () {
-              subscription?.resume();
+              subscription.resume();
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Close Stream'),
+            onPressed: () {
+              // Ask stream to shut down and tell listeners.
+              controller.close();
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Create Stream'),
+            onPressed: () {
+              setState(() {});
             },
           ),
         ],

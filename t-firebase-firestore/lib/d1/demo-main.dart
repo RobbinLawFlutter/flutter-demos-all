@@ -70,7 +70,6 @@ void performTasks() {
   }
 
   Stream stream = controller.stream;
-
   //here we are subscribing to listen to our stream.
   stream.listen((eventData) {
     //this callback is fired every time a new data event
