@@ -64,7 +64,7 @@ void performTasks() {
     //close the controller. Cannot add anything to the stream
     //after closing the controller.
     controller.close();
-    //controller.add(10);
+    controller.add(10);
   } catch (e) {
     print('catch: $e');
   }
