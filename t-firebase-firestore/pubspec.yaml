@@ -14,7 +14,7 @@ dependencies:
   cloud_firestore:
   flutter_slidable:
   animated_text_kit:
-  google_fonts:
+  google_fonts: 6.1.0
   font_awesome_flutter:
   
 dev_dependencies:
