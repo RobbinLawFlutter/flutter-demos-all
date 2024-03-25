@@ -4,17 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:robbinlaw/widgets/mysnackbar.dart';
 
 class Authorization {
-  User? currentUser = FirebaseAuth.instance.currentUser;
 
-  void listen() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        print('Auth listen; No User');
-      } else {
-        print('Auth listen: email= ${user.email} name= ${user.displayName}');
-      }
-    });
-  }
+  User? currentUser = FirebaseAuth.instance.currentUser;
 
   Future<void> signUp(String email, String password) async {
     try {
@@ -55,4 +46,15 @@ class Authorization {
       MySnackBar(text: 'logOut: FAILED').show();
     }
   }
+
+  void listen() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        print('Auth listen; No User');
+      } else {
+        print('Auth listen: email= ${user.email} name= ${user.displayName}');
+      }
+    });
+  }
+  
 }
