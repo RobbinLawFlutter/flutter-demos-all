@@ -28,7 +28,7 @@
 |9-M11||RestfulAPI/SQLite|RestfulAPI/SQLite|RestfulAPI/SQLite|
 |10-M18||Firebase/Firestore|Firebase/Firestore|Firebase/Firestore|
 |11-M25|Q3-RestAPI/SQLite (10%)  <p>A3-RestAPI/SQLite (10%)</p>|Firebase/Firestore|Firebase/Firestore|Firebase/Firestore|
-|12-A01||GPS/Camera|GPS/Camera|GPS/Camera|
-|13-A08|Project-Proposal (10%)|Project|Project|Project|
+|12-A01|Project-Proposal (10%)|GPS/Camera|GPS/Camera|GPS/Camera|
+|13-A08||Project|Project|Project|
 |14-A15||Project|Project|Project|
 |15-A22|<p>Q4-Firebase/Firestore (10%)</p> <p>Project-Code (10%)</P> <p>Project-Present via YouTube (10%)</p>||||
