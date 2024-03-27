@@ -54,7 +54,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDGTP4AH02qGgVClzFX2KpGYSY5jVND584',
-    appId: '1:442511002985:android:8e72aa9bce8489ded241f8',
+    appId: '1:442511002985:android:ea5d90a5cff9fe61d241f8',
     messagingSenderId: '442511002985',
     projectId: 'firestoredemo-16c50',
     databaseURL: 'https://firestoredemo-16c50.firebaseio.com',
