@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, avoid_print, use_build_context_synchronously
+// ignore_for_file: use_key_in_widget_constructors, avoid_print, use_build_context_synchronously, dead_code
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,7 +15,6 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  final bool useDissmissible = false;
   final TextEditingController textEditingController = TextEditingController();
 
   @override
@@ -113,6 +112,7 @@ class _HomeState extends State<Home> {
                       itemCount: listOfDocs.length,
                       itemBuilder: (BuildContext context, index) {
                         var doc = listOfDocs[index];
+                        bool useDissmissible = false;
                         if (useDissmissible) {
                           return MyCardWithDismissible(
                             userId: auth.currentUser!.uid,
